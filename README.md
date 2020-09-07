@@ -1,4 +1,4 @@
-Scientific Benchmark
+# Scientific Benchmark
 
 ## Languages & Libraries
 
@@ -32,6 +32,10 @@ Scientific Benchmark
     * [nalgebra](https://nalgebra.org/)
 * C++
     * [Armadillo](http://arma.sourceforge.net/)
+
+## Benchmark tool & command
+
+* [Hyperfine](https://github.com/sharkdp/hyperfine) : `hyperfine -w 3 --export-markdown bench.md`
 
 ## Computations
 
