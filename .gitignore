@@ -1,3 +1,6 @@
 target
 */**/target
+bin
+*/**/bin
+.vim
 

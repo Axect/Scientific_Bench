@@ -5,8 +5,6 @@ Scientific Benchmark
 ### Rust
 
 * [Peroxide](https://github.com/Axect/Peroxide)
-* [ndarray](https://github.com/rust-ndarray/ndarray)
-* [nalgebra](https://nalgebra.org/)
 
 ### Python
 
@@ -16,15 +14,24 @@ Scientific Benchmark
 ### C++
 
 * [Eigen3](http://eigen.tuxfamily.org/index.php?title=Main_Page)
-* [Armadillo](http://arma.sourceforge.net/)
-
-### Nim
-
-* [Arraymancer](https://github.com/mratsim/Arraymancer)
 
 ### Julia
 
-Just julia
+* Native julia
+
+### Chapel
+
+* Native Chapel
+
+### Candidates
+
+* Nim
+    * [Arraymancer](https://github.com/mratsim/Arraymancer)
+* Rust    
+    * [ndarray](https://github.com/rust-ndarray/ndarray)
+    * [nalgebra](https://nalgebra.org/)
+* C++
+    * [Armadillo](http://arma.sourceforge.net/)
 
 ## Computations
 

@@ -3,8 +3,8 @@ import numpy as np
 ROW = 100
 COL = 100
 
-m = np.arange(0,ROW*COL,1).reshape(ROW,COL)
-n = m
+m = np.random.rand(ROW, COL)
+n = np.random.rand(ROW, COL)
 
 result = np.matmul(m,n)
 

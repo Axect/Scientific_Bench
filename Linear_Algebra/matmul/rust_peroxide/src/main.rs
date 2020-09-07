@@ -6,10 +6,10 @@ const COL: usize = 100;
 
 fn main() {
     // Create Matrix
-    let m = Matrix::from_index(|i, j| (i * ROW + j) as f64, (ROW, COL));
+    let m = rand(ROW, COL);
     
     // Copy Matrix
-    let n = m.clone();
+    let n = rand(ROW, COL);
     
     // Matmul
     let result = m * n;
