@@ -1,18 +1,20 @@
 extern crate peroxide;
 use peroxide::fuga::*;
-
-const ROW: usize = 100;
-const COL: usize = 100;
+use std::env;
 
 fn main() {
+    let args: Vec<String> = env::args().collect();
+    let row = args[1].parse().unwrap();
+    let col = args[2].parse().unwrap();
+
     // Create Matrix
-    let m = rand(ROW, COL);
+    let m = rand(row, col);
     
     // Copy Matrix
-    let n = rand(ROW, COL);
+    let n = rand(row, col);
     
     // Matmul
     let result = m * n;
 
-    result[(ROW/2, COL/2)].print();
+    result[(row/2, col/2)].print();
 }

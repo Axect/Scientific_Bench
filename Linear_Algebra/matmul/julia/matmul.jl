@@ -1,8 +1,11 @@
-function mm()
-    m = rand(100, 100)
-    n = rand(100, 100)
+row = parse(Int, ARGS[1])
+col = parse(Int, ARGS[2])
+
+function mm(row::Int, col::Int)
+    m = rand(row, col)
+    n = rand(row, col)
     result = m * n
-    println(result[49, 49])
+    println(result[div(row, 2), div(col, 2)])
 end
 
-mm()
+mm(row, col)
