@@ -19,7 +19,7 @@ plt.rc('font', family='serif')
 plt.figure(figsize=(10,6), dpi=300)
 plt.title(r"Benchmark for matmul", fontsize=16)
 plt.xlabel(r'size', fontsize=14)
-plt.ylabel(r'time', fontsize=14)
+plt.ylabel(r'time(s)', fontsize=14)
 
 
 # Plot with Legends
