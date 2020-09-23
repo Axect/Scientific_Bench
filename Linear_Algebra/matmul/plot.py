@@ -10,6 +10,7 @@ eigen3 = df[df["command"].str.contains("eigen3")]
 numpy = df[df["command"].str.contains("numpy")]
 julia = df[df["command"].str.contains("julia")]
 chapel = df[df["command"].str.contains("chapel")]
+o3 = df[df["command"].str.contains("o3")]
 
 # Use latex
 plt.rc('text', usetex=True)
@@ -25,6 +26,9 @@ plt.ylabel(r'time(s)', fontsize=14)
 # Plot with Legends
 plt.plot(peroxide["parameter"], peroxide["mean"], marker='o', label=r'peroxide')
 plt.fill_between(peroxide["parameter"], peroxide["min"], peroxide["max"], alpha=0.2)
+
+plt.plot(o3["parameter"], o3["mean"], marker='o', label=r'peroxide(O3)')
+plt.fill_between(o3["parameter"], o3["min"], o3["max"], alpha=0.2)
 
 plt.plot(eigen3["parameter"], eigen3["mean"], marker='o', label=r'eigen3')
 plt.fill_between(eigen3["parameter"], eigen3["min"], eigen3["max"], alpha=0.2)
