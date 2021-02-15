@@ -5,6 +5,6 @@ hyperfine -w 3 \
     "./rust_peroxide/target/release/rust_peroxide {size} {size}" \
     "./rust_o3/target/release/rust_o3 {size} {size}" \
     "./cpp_eigen3/bin/matmul {size} {size}" \
-    "./chapel/bin/matmul --r={size} --c={size}" \
     "python python_numpy/matmul.py {size} {size}" \
     "julia -O0 --startup-file=no --compile=min julia/matmul.jl {size} {size}" 
+#    "./chapel/bin/matmul --r={size} --c={size}" \
