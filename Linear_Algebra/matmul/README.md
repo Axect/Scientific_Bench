@@ -11,7 +11,7 @@
 * Rust(BLAS) : `RUSTFLAGS='-C target-cpu=native' cargo build --release --features O3`
 * C++ : `g++ -I$EIGEN -O2`
 * C++(BLAS) : `g++ -I$EIGEN -I$OPENBLAS -lopenblas -O2`
-* Julia : `julia -O0 --startup-file=no --compile=min`
+* Julia : `@benchmark`
 * Nim : `nimble build -d:release -d:danger -d:openblas -d:blas=cblas`
 
 ## Specific version

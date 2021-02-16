@@ -34,6 +34,7 @@
 ## Benchmark tool & command
 
 * [Hyperfine](https://github.com/sharkdp/hyperfine) : `hyperfine -w 3 --export-markdown bench.md`
+* [BenchmarkTools](https://github.com/JuliaCI/BenchmarkTools.jl) : For julia benchmark
 
 ## Computations
 

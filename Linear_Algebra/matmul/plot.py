@@ -3,13 +3,15 @@ import pandas as pd
 
 # Load csv
 df = pd.read_csv("bench.csv")
+dg = pd.read_csv("bench_julia.csv")
 
 # Filtering
 peroxide = df[df["command"].str.contains("peroxide")]
 eigen3 = df[df["command"].str.contains("default")]
 eigen3_blas = df[df["command"].str.contains("blas")]
 numpy = df[df["command"].str.contains("numpy")]
-julia = df[df["command"].str.contains("julia")]
+#julia = df[df["command"].str.contains("julia")]
+julia = dg
 #chapel = df[df["command"].str.contains("chapel")]
 o3 = df[df["command"].str.contains("o3")]
 nim = df[df["command"].str.contains("nim")]
@@ -38,8 +40,8 @@ plt.fill_between(eigen3["parameter_size"], eigen3["min"], eigen3["max"], alpha=0
 plt.plot(nim["parameter_size"], nim["mean"], marker='o', label=r'arraymancer')
 plt.fill_between(nim["parameter_size"], nim["min"], nim["max"], alpha=0.2)
 
-plt.plot(julia["parameter_size"], julia["mean"], marker='o', label=r'julia')
-plt.fill_between(julia["parameter_size"], julia["min"], julia["max"], alpha=0.2)
+plt.plot(julia["param"], julia["mean"], marker='o', label=r'julia')
+plt.fill_between(julia["param"], julia["min"], julia["max"], alpha=0.2)
 
 plt.plot(numpy["parameter_size"], numpy["mean"], marker='o', label=r'numpy')
 plt.fill_between(numpy["parameter_size"], numpy["min"], numpy["max"], alpha=0.2)
