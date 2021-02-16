@@ -1,52 +1,72 @@
 | Command | Mean [ms] | Min [ms] | Max [ms] | Relative |
 |:---|---:|---:|---:|---:|
-| `./rust_peroxide/target/release/rust_peroxide 100 100` | 0.8 ± 0.1 | 0.5 | 1.2 | 1.00 |
-| `./rust_o3/target/release/rust_o3 100 100` | 2.3 ± 0.3 | 2.0 | 6.7 | 2.88 ± 0.57 |
-| `./cpp_eigen3/bin/matmul 100 100` | 1.3 ± 0.1 | 1.0 | 1.7 | 1.69 ± 0.27 |
-| `python python_numpy/matmul.py 100 100` | 91.4 ± 2.3 | 87.9 | 97.6 | 115.23 ± 14.57 |
-| `julia -O0 --startup-file=no --compile=min julia/matmul.jl 100 100` | 118.4 ± 2.4 | 112.1 | 120.9 | 149.35 ± 18.75 |
-| `./rust_peroxide/target/release/rust_peroxide 200 200` | 1.9 ± 0.1 | 1.5 | 2.2 | 2.40 ± 0.32 |
-| `./rust_o3/target/release/rust_o3 200 200` | 4.0 ± 0.5 | 3.4 | 11.3 | 5.05 ± 0.92 |
-| `./cpp_eigen3/bin/matmul 200 200` | 3.2 ± 0.1 | 2.6 | 3.8 | 3.98 ± 0.52 |
-| `python python_numpy/matmul.py 200 200` | 93.0 ± 3.9 | 88.3 | 108.3 | 117.35 ± 15.33 |
-| `julia -O0 --startup-file=no --compile=min julia/matmul.jl 200 200` | 118.3 ± 4.1 | 112.7 | 131.4 | 149.16 ± 19.20 |
-| `./rust_peroxide/target/release/rust_peroxide 300 300` | 4.1 ± 0.2 | 3.3 | 4.6 | 5.11 ± 0.70 |
-| `./rust_o3/target/release/rust_o3 300 300` | 7.6 ± 0.7 | 5.9 | 11.8 | 9.53 ± 1.46 |
-| `./cpp_eigen3/bin/matmul 300 300` | 6.9 ± 0.4 | 5.9 | 8.1 | 8.68 ± 1.20 |
-| `python python_numpy/matmul.py 300 300` | 94.1 ± 3.1 | 90.0 | 101.7 | 118.62 ± 15.20 |
-| `julia -O0 --startup-file=no --compile=min julia/matmul.jl 300 300` | 117.8 ± 2.0 | 114.0 | 120.2 | 148.58 ± 18.58 |
-| `./rust_peroxide/target/release/rust_peroxide 400 400` | 7.3 ± 0.4 | 6.2 | 9.6 | 9.21 ± 1.23 |
-| `./rust_o3/target/release/rust_o3 400 400` | 11.4 ± 0.6 | 9.8 | 13.6 | 14.40 ± 1.93 |
-| `./cpp_eigen3/bin/matmul 400 400` | 14.3 ± 0.6 | 12.3 | 15.4 | 18.02 ± 2.37 |
-| `python python_numpy/matmul.py 400 400` | 97.4 ± 2.8 | 92.1 | 103.3 | 122.88 ± 15.61 |
-| `julia -O0 --startup-file=no --compile=min julia/matmul.jl 400 400` | 120.3 ± 2.9 | 114.2 | 125.7 | 151.78 ± 19.16 |
-| `./rust_peroxide/target/release/rust_peroxide 500 500` | 12.5 ± 0.6 | 10.5 | 13.5 | 15.81 ± 2.11 |
-| `./rust_o3/target/release/rust_o3 500 500` | 16.7 ± 0.8 | 14.9 | 18.6 | 21.00 ± 2.77 |
-| `./cpp_eigen3/bin/matmul 500 500` | 24.9 ± 1.0 | 22.0 | 26.1 | 31.36 ± 4.08 |
-| `python python_numpy/matmul.py 500 500` | 99.1 ± 2.6 | 95.8 | 108.9 | 124.95 ± 15.82 |
-| `julia -O0 --startup-file=no --compile=min julia/matmul.jl 500 500` | 121.7 ± 2.7 | 117.7 | 128.7 | 153.52 ± 19.33 |
-| `./rust_peroxide/target/release/rust_peroxide 600 600` | 19.4 ± 0.8 | 16.9 | 20.6 | 24.51 ± 3.21 |
-| `./rust_o3/target/release/rust_o3 600 600` | 23.4 ± 3.6 | 20.7 | 58.9 | 29.51 ± 5.80 |
-| `./cpp_eigen3/bin/matmul 600 600` | 39.7 ± 1.1 | 35.7 | 43.6 | 50.01 ± 6.36 |
-| `python python_numpy/matmul.py 600 600` | 105.5 ± 4.6 | 100.4 | 121.3 | 133.09 ± 17.47 |
-| `julia -O0 --startup-file=no --compile=min julia/matmul.jl 600 600` | 122.6 ± 1.9 | 119.3 | 125.4 | 154.65 ± 19.31 |
-| `./rust_peroxide/target/release/rust_peroxide 700 700` | 28.4 ± 1.2 | 25.1 | 31.0 | 35.79 ± 4.70 |
-| `./rust_o3/target/release/rust_o3 700 700` | 30.6 ± 0.9 | 27.8 | 32.9 | 38.56 ± 4.91 |
-| `./cpp_eigen3/bin/matmul 700 700` | 58.3 ± 1.1 | 54.3 | 61.3 | 73.47 ± 9.21 |
-| `python python_numpy/matmul.py 700 700` | 110.4 ± 4.4 | 103.2 | 118.8 | 139.26 ± 18.14 |
-| `julia -O0 --startup-file=no --compile=min julia/matmul.jl 700 700` | 128.1 ± 3.0 | 123.0 | 134.1 | 161.54 ± 20.36 |
-| `./rust_peroxide/target/release/rust_peroxide 800 800` | 41.0 ± 2.3 | 35.7 | 44.8 | 51.73 ± 7.03 |
-| `./rust_o3/target/release/rust_o3 800 800` | 40.1 ± 3.5 | 37.8 | 68.7 | 50.56 ± 7.66 |
-| `./cpp_eigen3/bin/matmul 800 800` | 86.5 ± 1.4 | 81.2 | 88.4 | 109.10 ± 13.64 |
-| `python python_numpy/matmul.py 800 800` | 116.1 ± 5.3 | 110.5 | 131.2 | 146.48 ± 19.35 |
-| `julia -O0 --startup-file=no --compile=min julia/matmul.jl 800 800` | 130.0 ± 2.8 | 124.8 | 136.9 | 164.00 ± 20.62 |
-| `./rust_peroxide/target/release/rust_peroxide 900 900` | 55.0 ± 1.6 | 49.7 | 57.5 | 69.38 ± 8.82 |
-| `./rust_o3/target/release/rust_o3 900 900` | 50.5 ± 1.2 | 47.8 | 53.5 | 63.67 ± 8.04 |
-| `./cpp_eigen3/bin/matmul 900 900` | 123.5 ± 2.4 | 115.9 | 127.6 | 155.74 ± 19.53 |
-| `python python_numpy/matmul.py 900 900` | 127.2 ± 4.6 | 118.9 | 133.9 | 160.37 ± 20.71 |
-| `julia -O0 --startup-file=no --compile=min julia/matmul.jl 900 900` | 139.7 ± 6.3 | 129.7 | 153.5 | 176.13 ± 23.23 |
-| `./rust_peroxide/target/release/rust_peroxide 1000 1000` | 74.7 ± 1.7 | 71.7 | 77.5 | 94.25 ± 11.87 |
-| `./rust_o3/target/release/rust_o3 1000 1000` | 65.5 ± 12.9 | 60.5 | 130.9 | 82.63 ± 19.20 |
-| `./cpp_eigen3/bin/matmul 1000 1000` | 166.2 ± 1.9 | 158.9 | 168.2 | 209.63 ± 26.08 |
-| `python python_numpy/matmul.py 1000 1000` | 133.7 ± 5.5 | 123.2 | 141.0 | 168.58 ± 22.01 |
-| `julia -O0 --startup-file=no --compile=min julia/matmul.jl 1000 1000` | 146.0 ± 5.1 | 135.3 | 154.6 | 184.16 ± 23.69 |
+| `./rust_peroxide/target/release/rust_peroxide 100 100` | 0.8 ± 0.1 | 0.6 | 1.2 | 1.00 |
+| `./rust_o3/target/release/rust_o3 100 100` | 2.5 ± 1.8 | 2.2 | 44.8 | 3.26 ± 2.40 |
+| `./cpp_eigen3_default/bin/matmul 100 100` | 1.2 ± 0.2 | 1.0 | 3.5 | 1.58 ± 0.27 |
+| `./cpp_eigen3_blas/bin/matmul 100 100` | 3.0 ± 0.9 | 2.4 | 18.4 | 3.82 ± 1.26 |
+| `python python_numpy/matmul.py 100 100` | 88.2 ± 2.1 | 85.4 | 92.9 | 114.19 ± 13.02 |
+| `julia -O0 --startup-file=no --compile=min julia/matmul.jl 100 100` | 114.7 ± 2.0 | 111.0 | 118.0 | 148.45 ± 16.76 |
+| `./nim_arraymancer/nim_arraymancer 100 100` | 2.7 ± 0.5 | 2.4 | 10.3 | 3.50 ± 0.75 |
+| `./rust_peroxide/target/release/rust_peroxide 200 200` | 1.8 ± 0.1 | 1.5 | 2.2 | 2.34 ± 0.32 |
+| `./rust_o3/target/release/rust_o3 200 200` | 4.5 ± 2.9 | 3.2 | 59.3 | 5.83 ± 3.84 |
+| `./cpp_eigen3_default/bin/matmul 200 200` | 3.1 ± 0.3 | 2.6 | 3.8 | 4.06 ± 0.57 |
+| `./cpp_eigen3_blas/bin/matmul 200 200` | 3.4 ± 0.3 | 3.2 | 6.9 | 4.46 ± 0.62 |
+| `python python_numpy/matmul.py 200 200` | 94.0 ± 2.5 | 90.8 | 101.1 | 121.67 ± 13.97 |
+| `julia -O0 --startup-file=no --compile=min julia/matmul.jl 200 200` | 119.7 ± 1.6 | 117.3 | 124.2 | 154.97 ± 17.42 |
+| `./nim_arraymancer/nim_arraymancer 200 200` | 4.1 ± 1.0 | 3.7 | 22.2 | 5.31 ± 1.39 |
+| `./rust_peroxide/target/release/rust_peroxide 300 300` | 4.1 ± 0.4 | 3.3 | 4.9 | 5.37 ± 0.77 |
+| `./rust_o3/target/release/rust_o3 300 300` | 7.8 ± 0.5 | 6.3 | 11.7 | 10.10 ± 1.31 |
+| `./cpp_eigen3_default/bin/matmul 300 300` | 7.1 ± 0.6 | 6.0 | 9.0 | 9.22 ± 1.25 |
+| `./cpp_eigen3_blas/bin/matmul 300 300` | 5.0 ± 1.3 | 4.3 | 20.1 | 6.52 ± 1.89 |
+| `python python_numpy/matmul.py 300 300` | 98.9 ± 3.6 | 92.3 | 106.7 | 128.02 ± 15.01 |
+| `julia -O0 --startup-file=no --compile=min julia/matmul.jl 300 300` | 123.8 ± 4.9 | 117.3 | 139.5 | 160.30 ± 18.99 |
+| `./nim_arraymancer/nim_arraymancer 300 300` | 5.6 ± 2.4 | 5.0 | 48.0 | 7.27 ± 3.24 |
+| `./rust_peroxide/target/release/rust_peroxide 400 400` | 7.9 ± 0.6 | 6.5 | 9.6 | 10.22 ± 1.40 |
+| `./rust_o3/target/release/rust_o3 400 400` | 12.7 ± 1.6 | 10.4 | 27.9 | 16.42 ± 2.75 |
+| `./cpp_eigen3_default/bin/matmul 400 400` | 15.4 ± 0.6 | 12.2 | 16.0 | 19.95 ± 2.37 |
+| `./cpp_eigen3_blas/bin/matmul 400 400` | 7.3 ± 2.4 | 6.1 | 44.6 | 9.40 ± 3.28 |
+| `python python_numpy/matmul.py 400 400` | 101.6 ± 2.7 | 97.3 | 109.0 | 131.50 ± 15.10 |
+| `julia -O0 --startup-file=no --compile=min julia/matmul.jl 400 400` | 125.8 ± 3.8 | 119.0 | 131.9 | 162.82 ± 18.83 |
+| `./nim_arraymancer/nim_arraymancer 400 400` | 9.0 ± 1.0 | 8.1 | 20.4 | 11.60 ± 1.81 |
+| `./rust_peroxide/target/release/rust_peroxide 500 500` | 13.0 ± 0.8 | 10.9 | 14.6 | 16.81 ± 2.15 |
+| `./rust_o3/target/release/rust_o3 500 500` | 18.1 ± 0.9 | 16.4 | 20.6 | 23.39 ± 2.84 |
+| `./cpp_eigen3_default/bin/matmul 500 500` | 27.5 ± 0.5 | 23.3 | 28.5 | 35.59 ± 4.04 |
+| `./cpp_eigen3_blas/bin/matmul 500 500` | 10.3 ± 0.8 | 8.9 | 13.5 | 13.38 ± 1.81 |
+| `python python_numpy/matmul.py 500 500` | 107.7 ± 3.7 | 102.7 | 115.5 | 139.38 ± 16.29 |
+| `julia -O0 --startup-file=no --compile=min julia/matmul.jl 500 500` | 128.4 ± 4.1 | 121.3 | 134.5 | 166.24 ± 19.30 |
+| `./nim_arraymancer/nim_arraymancer 500 500` | 14.0 ± 0.9 | 12.7 | 17.1 | 18.15 ± 2.33 |
+| `./rust_peroxide/target/release/rust_peroxide 600 600` | 20.6 ± 1.2 | 16.6 | 22.2 | 26.65 ± 3.33 |
+| `./rust_o3/target/release/rust_o3 600 600` | 25.6 ± 4.5 | 23.0 | 66.3 | 33.08 ± 6.89 |
+| `./cpp_eigen3_default/bin/matmul 600 600` | 42.4 ± 1.7 | 36.6 | 44.9 | 54.90 ± 6.53 |
+| `./cpp_eigen3_blas/bin/matmul 600 600` | 14.2 ± 2.0 | 12.3 | 27.3 | 18.40 ± 3.27 |
+| `python python_numpy/matmul.py 600 600` | 111.0 ± 4.1 | 105.6 | 123.8 | 143.72 ± 16.91 |
+| `julia -O0 --startup-file=no --compile=min julia/matmul.jl 600 600` | 132.7 ± 11.5 | 123.1 | 183.3 | 171.72 ± 24.27 |
+| `./nim_arraymancer/nim_arraymancer 600 600` | 19.9 ± 3.3 | 17.3 | 48.0 | 25.78 ± 5.14 |
+| `./rust_peroxide/target/release/rust_peroxide 700 700` | 30.3 ± 1.9 | 25.7 | 33.4 | 39.20 ± 5.00 |
+| `./rust_o3/target/release/rust_o3 700 700` | 33.5 ± 1.4 | 30.4 | 36.8 | 43.32 ± 5.16 |
+| `./cpp_eigen3_default/bin/matmul 700 700` | 63.5 ± 1.9 | 57.6 | 65.5 | 82.17 ± 9.51 |
+| `./cpp_eigen3_blas/bin/matmul 700 700` | 18.8 ± 1.2 | 16.8 | 25.3 | 24.37 ± 3.14 |
+| `python python_numpy/matmul.py 700 700` | 115.0 ± 2.9 | 110.7 | 120.8 | 148.89 ± 17.05 |
+| `julia -O0 --startup-file=no --compile=min julia/matmul.jl 700 700` | 134.8 ± 2.7 | 128.5 | 139.9 | 174.49 ± 19.80 |
+| `./nim_arraymancer/nim_arraymancer 700 700` | 25.1 ± 1.7 | 22.6 | 33.9 | 32.46 ± 4.21 |
+| `./rust_peroxide/target/release/rust_peroxide 800 800` | 43.4 ± 1.3 | 38.8 | 45.4 | 56.19 ± 6.49 |
+| `./rust_o3/target/release/rust_o3 800 800` | 43.0 ± 1.4 | 39.6 | 47.0 | 55.72 ± 6.48 |
+| `./cpp_eigen3_default/bin/matmul 800 800` | 93.6 ± 2.5 | 84.2 | 96.0 | 121.19 ± 13.90 |
+| `./cpp_eigen3_blas/bin/matmul 800 800` | 24.3 ± 2.0 | 21.5 | 33.3 | 31.51 ± 4.38 |
+| `python python_numpy/matmul.py 800 800` | 121.8 ± 3.7 | 116.0 | 129.4 | 157.61 ± 18.24 |
+| `julia -O0 --startup-file=no --compile=min julia/matmul.jl 800 800` | 138.6 ± 6.1 | 133.4 | 158.9 | 179.44 ± 21.54 |
+| `./nim_arraymancer/nim_arraymancer 800 800` | 33.5 ± 3.6 | 29.7 | 48.2 | 43.39 ± 6.76 |
+| `./rust_peroxide/target/release/rust_peroxide 900 900` | 60.7 ± 3.0 | 51.5 | 66.5 | 78.60 ± 9.61 |
+| `./rust_o3/target/release/rust_o3 900 900` | 56.2 ± 9.3 | 51.8 | 120.1 | 72.77 ± 14.51 |
+| `./cpp_eigen3_default/bin/matmul 900 900` | 126.3 ± 3.4 | 121.2 | 132.8 | 163.55 ± 18.79 |
+| `./cpp_eigen3_blas/bin/matmul 900 900` | 30.9 ± 1.7 | 28.1 | 38.3 | 40.00 ± 4.95 |
+| `python python_numpy/matmul.py 900 900` | 130.2 ± 4.5 | 123.5 | 140.6 | 168.60 ± 19.71 |
+| `julia -O0 --startup-file=no --compile=min julia/matmul.jl 900 900` | 141.9 ± 3.1 | 136.5 | 145.5 | 183.63 ± 20.88 |
+| `./nim_arraymancer/nim_arraymancer 900 900` | 46.5 ± 6.4 | 39.9 | 69.0 | 60.18 ± 10.65 |
+| `./rust_peroxide/target/release/rust_peroxide 1000 1000` | 78.0 ± 3.4 | 69.5 | 82.4 | 100.94 ± 12.10 |
+| `./rust_o3/target/release/rust_o3 1000 1000` | 67.0 ± 1.6 | 64.4 | 74.7 | 86.70 ± 9.88 |
+| `./cpp_eigen3_default/bin/matmul 1000 1000` | 173.1 ± 3.3 | 165.6 | 178.6 | 224.14 ± 25.39 |
+| `./cpp_eigen3_blas/bin/matmul 1000 1000` | 37.8 ± 1.7 | 35.0 | 43.2 | 48.98 ± 5.91 |
+| `python python_numpy/matmul.py 1000 1000` | 138.8 ± 5.3 | 127.7 | 149.3 | 179.64 ± 21.18 |
+| `julia -O0 --startup-file=no --compile=min julia/matmul.jl 1000 1000` | 149.9 ± 4.2 | 139.7 | 154.8 | 194.11 ± 22.34 |
+| `./nim_arraymancer/nim_arraymancer 1000 1000` | 49.5 ± 1.6 | 46.9 | 54.5 | 64.10 ± 7.45 |
