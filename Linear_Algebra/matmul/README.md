@@ -3,7 +3,7 @@
 ## Hardware specification
 
 * CPU: 6-Core Intel Core i7-9750H (-MT MCP-) speed/min/max: 892/800/4500 MHz 
-* Kernel: 5.4.60-2-MANJARO x86_64
+* Kernel: 5.10.16-arch1-1
 
 ## Compilation option
 
