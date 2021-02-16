@@ -19,14 +19,12 @@
 
 * Native julia
 
-### Chapel
+### Nim
 
-* Native Chapel
+* Arraymancer
 
 ### Candidates
 
-* Nim
-    * [Arraymancer](https://github.com/mratsim/Arraymancer)
 * Rust    
     * [ndarray](https://github.com/rust-ndarray/ndarray)
     * [nalgebra](https://nalgebra.org/)
