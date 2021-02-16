@@ -9,20 +9,22 @@
 
 * Rust : `RUSTFLAGS='-C target-cpu=native' cargo build --release`
 * Rust(BLAS) : `RUSTFLAGS='-C target-cpu=native' cargo build --release --features O3`
-* Chapel : `chpl -O -I$OPENBLAS_INCLUDE -L$OPENBLAS_LIB -lopenblas`
 * C++ : `g++ -I$EIGEN -O2`
+* C++(BLAS) : `g++ -I$EIGEN -I$OPENBLAS -lopenblas -O2`
 * Julia : `julia -O0 --startup-file=no --compile=min`
+* Nim : `nimble build -d:release -d:danger -d:openblas -d:blas=cblas`
 
 ## Specific version
 
-* Rust : `rustc 1.48.0-nightly`
-    * Peroxide : `0.26.3`
-* Chapel : `chpl version 1.22.1`
+* Rust : `rustc 1.51.0-nightly`
+    * Peroxide : `0.30.3`
 * C++ : `gcc version 10.2.0`
     * Eigen : `3.3.7`
-* Julia : `julia version 1.5.0`
-* Python : `Python 3.8.5`
-    * numpy : `1.19.1`
+* Julia : `julia version 1.5.3`
+* Python : `Python 3.9.1`
+    * numpy : `1.20.0`
+* Nim : `Nim Compiler Version 1.5.1 [Linux: amd64]`
+    * arraymancer : `0.6.2`
 
 ## Result
 

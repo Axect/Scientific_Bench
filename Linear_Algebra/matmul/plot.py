@@ -35,17 +35,18 @@ plt.fill_between(o3["parameter_size"], o3["min"], o3["max"], alpha=0.2)
 plt.plot(eigen3["parameter_size"], eigen3["mean"], marker='o', label=r'eigen3')
 plt.fill_between(eigen3["parameter_size"], eigen3["min"], eigen3["max"], alpha=0.2)
 
-plt.plot(eigen3_blas["parameter_size"], eigen3_blas["mean"], marker='o', label=r'eigen3(blas)')
-plt.fill_between(eigen3_blas["parameter_size"], eigen3_blas["min"], eigen3_blas["max"], alpha=0.2)
-
-plt.plot(numpy["parameter_size"], numpy["mean"], marker='o', label=r'numpy')
-plt.fill_between(numpy["parameter_size"], numpy["min"], numpy["max"], alpha=0.2)
+plt.plot(nim["parameter_size"], nim["mean"], marker='o', label=r'arraymancer')
+plt.fill_between(nim["parameter_size"], nim["min"], nim["max"], alpha=0.2)
 
 plt.plot(julia["parameter_size"], julia["mean"], marker='o', label=r'julia')
 plt.fill_between(julia["parameter_size"], julia["min"], julia["max"], alpha=0.2)
 
-plt.plot(nim["parameter_size"], nim["mean"], marker='o', label=r'arraymancer')
-plt.fill_between(nim["parameter_size"], nim["min"], nim["max"], alpha=0.2)
+plt.plot(numpy["parameter_size"], numpy["mean"], marker='o', label=r'numpy')
+plt.fill_between(numpy["parameter_size"], numpy["min"], numpy["max"], alpha=0.2)
+
+plt.plot(eigen3_blas["parameter_size"], eigen3_blas["mean"], marker='o', label=r'eigen3(blas)')
+plt.fill_between(eigen3_blas["parameter_size"], eigen3_blas["min"], eigen3_blas["max"], alpha=0.2)
+
 
 #plt.plot(chapel["parameter_size"], chapel["mean"], marker='o', label=r'chapel')
 #plt.fill_between(chapel["parameter_size"], chapel["min"], chapel["max"], alpha=0.2)
