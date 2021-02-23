@@ -1,7 +1,8 @@
 using BenchmarkTools, DataFrames, CSV
 
-function sum_simd(x::S) where {T <: Number, S <: AbstractVector{T}}
-    s = zero(eltype(x))
+function sum_simd(p::Int)::Float64
+    x = 0.0:Float64(10^p);
+    s = 0.0;
     @inbounds @simd for t in x
         s += t
     end
@@ -11,7 +12,7 @@ end
 df = DataFrame(min=Float64[], mean=Float64[], max=Float64[], param=Int64[])
 
 for p in 4:8
-    b = @benchmark sum_simd(0.0:Float64(10^$p))
+    b = @benchmark sum_simd($p)
     push!(df, Dict(:min => minimum(b).time, :mean => mean(b).time, :max => maximum(b).time, :param => 10^p))
 end
 

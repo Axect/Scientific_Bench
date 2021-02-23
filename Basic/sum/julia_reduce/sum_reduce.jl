@@ -1,13 +1,14 @@
 using BenchmarkTools, DataFrames, CSV
 
-function sum_functional(x::S) where {T <: Number, S <: AbstractVector{T}}
+function sum_functional(p::Int)::Float64
+    x = 0.0:Float64(10^p);
     reduce(+, x)
 end
 
 df = DataFrame(min=Float64[], mean=Float64[], max=Float64[], param=Int64[])
 
 for p in 4:8
-    b = @benchmark sum_functional(0.0:Float64(10^$p))
+    b = @benchmark sum_functional($p)
     push!(df, Dict(:min => minimum(b).time, :mean => mean(b).time, :max => maximum(b).time, :param => 10^p))
 end
 

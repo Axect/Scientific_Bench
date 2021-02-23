@@ -4,12 +4,13 @@ import pandas as pd
 # Load csv
 df = pd.read_csv("bench.csv")
 dg = pd.read_csv("bench_julia.csv")
+dp = pd.read_csv("bench_python.csv")
 
 # Filtering
 peroxide = df[df["command"].str.contains("peroxide")]
 eigen3 = df[df["command"].str.contains("default")]
 eigen3_blas = df[df["command"].str.contains("blas")]
-numpy = df[df["command"].str.contains("numpy")]
+numpy = dp
 #julia = df[df["command"].str.contains("julia")]
 julia = dg
 #chapel = df[df["command"].str.contains("chapel")]
@@ -25,6 +26,8 @@ plt.figure(figsize=(10,6), dpi=300)
 plt.title(r"Benchmark for matmul", fontsize=16)
 plt.xlabel(r'size', fontsize=14)
 plt.ylabel(r'time(s)', fontsize=14)
+
+domain = peroxide["parameter_size"]
 
 
 # Plot with Legends
@@ -43,8 +46,8 @@ plt.fill_between(nim["parameter_size"], nim["min"], nim["max"], alpha=0.2)
 plt.plot(julia["param"], julia["mean"], marker='o', label=r'julia')
 plt.fill_between(julia["param"], julia["min"], julia["max"], alpha=0.2)
 
-plt.plot(numpy["parameter_size"], numpy["mean"], marker='o', label=r'numpy')
-plt.fill_between(numpy["parameter_size"], numpy["min"], numpy["max"], alpha=0.2)
+plt.plot(domain, numpy["mean"], marker='o', label=r'numpy')
+plt.fill_between(domain, numpy["min"], numpy["max"], alpha=0.2)
 
 plt.plot(eigen3_blas["parameter_size"], eigen3_blas["mean"], marker='o', label=r'eigen3(blas)')
 plt.fill_between(eigen3_blas["parameter_size"], eigen3_blas["min"], eigen3_blas["max"], alpha=0.2)

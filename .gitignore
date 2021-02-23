@@ -3,4 +3,6 @@ target
 bin
 */**/bin
 .vim
+__pycache__
+*/**/__pycache__
 
