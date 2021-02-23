@@ -1,0 +1,12 @@
+[package]
+name = "rust_faster"
+version = "0.1.0"
+authors = ["Axect <axect@outlook.kr>"]
+edition = "2018"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[dependencies]
+packed_simd = { version = "0.3.4", package = "packed_simd_2" }
+faster = "0.5"
+peroxide = "0.30"

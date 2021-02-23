@@ -38,6 +38,10 @@
 
 ## Computations
 
+### Basic
+
+* [Summation](./Basic/sum)
+
 ### Linear Algebra
 
 * [Matrix Multiplication](./Linear_Algebra/matmul)
