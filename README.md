@@ -21,7 +21,7 @@
 
 ### Nim
 
-* Arraymancer
+* [Arraymancer](https://github.com/mratsim/Arraymancer)
 
 ### Candidates
 
