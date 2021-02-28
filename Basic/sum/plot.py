@@ -12,6 +12,7 @@ dp = pd.read_csv("bench_python.csv")
 # Filtering
 rust_for = df[df["command"].str.contains("rust_for")]
 rust_simd = df[df["command"].str.contains("rust_simd")]
+rust_chunk = df[df["command"].str.contains("rust_chunk")]
 #eigen3 = df[df["command"].str.contains("default")]
 #eigen3_blas = df[df["command"].str.contains("blas")]
 #numpy = df[df["command"].str.contains("numpy")]
@@ -59,6 +60,9 @@ plt.fill_between(domain, rust_for["min"], rust_for["max"], alpha=0.2)
 plt.loglog(domain, rust_simd["mean"], marker='o', label=r'rust(simd)')
 plt.fill_between(domain, rust_simd["min"], rust_simd["max"], alpha=0.2)
 
+plt.loglog(domain, rust_chunk["mean"], marker='o', label=r'rust(chunk)')
+plt.fill_between(domain, rust_chunk["min"], rust_chunk["max"], alpha=0.2)
+
 
 
 # Other options
@@ -78,6 +82,9 @@ plt.fill_between(domain, rust_for["min"], rust_for["max"], alpha=0.2)
 
 plt.semilogx(domain, rust_simd["mean"], marker='o', label=r'rust(simd)')
 plt.fill_between(domain, rust_simd["min"], rust_simd["max"], alpha=0.2)
+
+plt.semilogx(domain, rust_chunk["mean"], marker='o', label=r'rust(chunk)')
+plt.fill_between(domain, rust_chunk["min"], rust_chunk["max"], alpha=0.2)
 
 plt.semilogx(domain, julia_for["mean"], marker='o', label=r'julia(for loop)')
 plt.fill_between(domain, julia_for["min"], julia_for["max"], alpha=0.2)
