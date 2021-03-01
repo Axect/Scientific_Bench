@@ -2,15 +2,13 @@
 
 ## Description
 
-```julia
-# Julia Code for description
-function sum_for(p::Int)::Float64
-    x = 0.0:Float64(10^p) # 0 to 10^p
-    s = 0.0
-    for t in x
+```python
+# Python Code for description
+def for_sum(x):
+    s = 0
+    for t in x:
         s += t
-    end
-end
+    return s
 ```
 
 ## Hardware specification
@@ -20,20 +18,21 @@ end
 
 ## Compilation option
 
-* Rust : `RUSTFLAGS='-C target-cpu=native' cargo build --release`
+* Rust : `cargo bench`
+* Julia : `julia -O3`
 
 ## Specific version
 
 * Rust : `rustc 1.51.0-nightly`
-    * Peroxide : `0.30.3`
+    * `packed_simd_2`: `0.3`
 * Julia : `julia version 1.5.3`
 * Python : `Python 3.9.1`
     * numpy : `1.20.0`
 
 ## Result
 
-### 1. Semi-Log scale plot (without python)
-![Plot](semi_log_plot.png)
+### 1. Small Size (10000 ~ 100000)
+![Plot](small_plot.png)
 
-### 2. Log-Log plot
-![LogPlot](log_log_plot.png)
+### 2. Large Size (10000000 ~ 100000000)
+![LogPlot](large_plot.png)
