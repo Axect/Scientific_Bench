@@ -1,0 +1,5 @@
+# Bench
+
+```sh
+cargo bench
+```

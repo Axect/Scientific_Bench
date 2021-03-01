@@ -10,10 +10,13 @@ end
 
 df = DataFrame(min=Float64[], mean=Float64[], max=Float64[], param=Int64[])
 
-for p in 4:8
-    x = 0.0:Float64(10^p);
+small_range = [collect(1.0:Float64(p)) for p in 10000:10000:10_0000]
+large_range = [collect(1.0:Float64(p)) for p in 1000_0000:1000_0000:10000_0000]
+range = vcat(small_range, large_range)
+
+for x in range 
     b = @benchmark sum_avx($x)
-    push!(df, Dict(:min => minimum(b).time, :mean => mean(b).time, :max => maximum(b).time, :param => 10^p))
+    push!(df, Dict(:min => minimum(b).time, :mean => mean(b).time, :max => maximum(b).time, :param => x[end]))
 end
 
 df[:, :min] ./= 10^9

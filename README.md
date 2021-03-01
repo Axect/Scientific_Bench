@@ -35,7 +35,8 @@
 
 Library | Purpose | Command
 :-----: | :-----: | :-----:
-[Hyperfine](https://github.com/sharkdp/hyperfine) | Benchmark rust, c++, nim | `hyperfine -w 3 --export-markdown bench.md ${BINARY_FILE}`
+[Hyperfine](https://github.com/sharkdp/hyperfine) | Benchmark binaries (Nim, C++, Rust) | `hyperfine -w 3 --export-markdown bench.md ${BINARY_FILE}`
+[Criterion](https://github.com/bheisler/criterion.rs) | Benchmark rust | `cargo bench`
 [BenchmarkTools](https://github.com/JuliaCI/BenchmarkTools.jl) | For julia benchmark | `@benchmark`
 [pytest-benchmark](https://github.com/ionelmc/pytest-benchmark) | For python benchmark | `pytest --benchmark-only ${SOURCE_FILE.py} --benchmark-save=bench`
 
