@@ -17,7 +17,7 @@
 ## Specific version
 
 * Rust : `rustc 1.51.0-nightly`
-    * Peroxide : `0.30.3`
+    * Peroxide : `0.30.4`
 * C++ : `gcc version 10.2.0`
     * Eigen : `3.3.7`
 * Julia : `julia version 1.5.3`
