@@ -97,6 +97,15 @@ domain = small_range
 plt.plot(domain, py_numpy["mean"][0:10], marker='o', label=r'python(numpy)')
 plt.fill_between(domain, py_numpy["min"][0:10], py_numpy["max"][0:10], alpha=0.2)
 
+plt.plot(domain, rust_for["mean"][0:10], marker='o', label=r'rust(for loop)')
+plt.fill_between(domain, rust_for["min"][0:10], rust_for["max"][0:10], alpha=0.2)
+
+plt.plot(domain, rust_simd["mean"][0:10], marker='o', label=r'rust(simd)')
+plt.fill_between(domain, rust_simd["min"][0:10], rust_simd["max"][0:10], alpha=0.2)
+
+plt.plot(domain, rust_chunk["mean"][0:10], marker='o', label=r'rust(chunk)')
+plt.fill_between(domain, rust_chunk["min"][0:10], rust_chunk["max"][0:10], alpha=0.2)
+
 #plt.plot(domain, py_sum["mean"][0:10], marker='o', label=r'python(sum)')
 #plt.fill_between(domain, py_sum["min"][0:10], py_sum["max"][0:10], alpha=0.2)
 
@@ -112,14 +121,6 @@ plt.fill_between(domain, julia_simd["min"][0:10], julia_simd["max"][0:10], alpha
 plt.plot(domain, julia_avx["mean"][0:10], marker='o', label=r'julia(avx)')
 plt.fill_between(domain, julia_avx["min"][0:10], julia_avx["max"][0:10], alpha=0.2)
 
-plt.plot(domain, rust_for["mean"][0:10], marker='o', label=r'rust(for loop)')
-plt.fill_between(domain, rust_for["min"][0:10], rust_for["max"][0:10], alpha=0.2)
-
-plt.plot(domain, rust_simd["mean"][0:10], marker='o', label=r'rust(simd)')
-plt.fill_between(domain, rust_simd["min"][0:10], rust_simd["max"][0:10], alpha=0.2)
-
-plt.plot(domain, rust_chunk["mean"][0:10], marker='o', label=r'rust(chunk)')
-plt.fill_between(domain, rust_chunk["min"][0:10], rust_chunk["max"][0:10], alpha=0.2)
 
 # Other options
 plt.legend(fontsize=12)
@@ -135,6 +136,9 @@ plt.ylabel(r'time(s)', fontsize=14)
 domain = large_range
 
 # Plot with Legends
+plt.plot(domain, py_numpy["mean"][10:], marker='o', label=r'python(numpy)')
+plt.fill_between(domain, py_numpy["min"][10:], py_numpy["max"][10:], alpha=0.2)
+
 plt.plot(domain, rust_for["mean"][10:], marker='o', label=r'rust(for loop)')
 plt.fill_between(domain, rust_for["min"][10:], rust_for["max"][10:], alpha=0.2)
 
@@ -156,8 +160,6 @@ plt.fill_between(domain, julia_simd["min"][10:], julia_simd["max"][10:], alpha=0
 plt.plot(domain, julia_avx["mean"][10:], marker='o', label=r'julia(avx)')
 plt.fill_between(domain, julia_avx["min"][10:], julia_avx["max"][10:], alpha=0.2)
 
-plt.plot(domain, py_numpy["mean"][10:], marker='o', label=r'python(numpy)')
-plt.fill_between(domain, py_numpy["min"][10:], py_numpy["max"][10:], alpha=0.2)
 
 #plt.plot(domain, py_sum["mean"], marker='o', label=r'python(sum)')
 #plt.fill_between(domain, py_sum["min"], py_sum["max"], alpha=0.2)
