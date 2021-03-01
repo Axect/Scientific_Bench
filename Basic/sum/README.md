@@ -31,8 +31,8 @@ def for_sum(x):
 
 ## Result
 
-### 1. Small Size (10000 ~ 100000)
+### 1. Small Size Array (10000 ~ 100000)
 ![Plot](small_plot.png)
 
-### 2. Large Size (10000000 ~ 100000000)
+### 2. Large Size Array (10000000 ~ 100000000)
 ![LogPlot](large_plot.png)
