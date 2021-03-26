@@ -28,4 +28,10 @@
 
 ## Result
 
+### All
+
 ![Plot](plot.png)
+
+### Without Eigen3(without BLAS)
+
+![Plot](plot2.png)
