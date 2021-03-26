@@ -32,8 +32,11 @@ plt.fill_between(peroxide["parameter_size"], peroxide["min"], peroxide["max"], a
 plt.plot(o3["parameter_size"], o3["mean"], marker='o', label=r'peroxide(O3)')
 plt.fill_between(o3["parameter_size"], o3["min"], o3["max"], alpha=0.2)
 
-plt.plot(eigen3["parameter_size"], eigen3["mean"], marker='o', label=r'eigen3')
-plt.fill_between(eigen3["parameter_size"], eigen3["min"], eigen3["max"], alpha=0.2)
+plt.plot(five["parameter_size"], five["mean"], marker='o', label=r'peroxide(0.30.5)')
+plt.fill_between(five["parameter_size"], five["min"], five["max"], alpha=0.2)
+
+#plt.plot(eigen3["parameter_size"], eigen3["mean"], marker='o', label=r'eigen3')
+#plt.fill_between(eigen3["parameter_size"], eigen3["min"], eigen3["max"], alpha=0.2)
 
 plt.plot(nim["parameter_size"], nim["mean"], marker='o', label=r'arraymancer')
 plt.fill_between(nim["parameter_size"], nim["min"], nim["max"], alpha=0.2)
@@ -47,8 +50,6 @@ plt.fill_between(domain, numpy["min"], numpy["max"], alpha=0.2)
 plt.plot(eigen3_blas["parameter_size"], eigen3_blas["mean"], marker='o', label=r'eigen3(blas)')
 plt.fill_between(eigen3_blas["parameter_size"], eigen3_blas["min"], eigen3_blas["max"], alpha=0.2)
 
-plt.plot(five["parameter_size"], five["mean"], marker='o', label=r'peroxide(0.30.5)')
-plt.fill_between(five["parameter_size"], five["min"], five["max"], alpha=0.2)
 
 #plt.plot(chapel["parameter_size"], chapel["mean"], marker='o', label=r'chapel')
 #plt.fill_between(chapel["parameter_size"], chapel["min"], chapel["max"], alpha=0.2)
@@ -56,4 +57,4 @@ plt.fill_between(five["parameter_size"], five["min"], five["max"], alpha=0.2)
 # Other options
 plt.legend(fontsize=12)
 plt.grid()
-plt.savefig("plot.png", dpi=300)
+plt.savefig("plot2.png", dpi=300)
