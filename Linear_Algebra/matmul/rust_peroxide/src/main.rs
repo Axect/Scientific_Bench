@@ -10,7 +10,7 @@ fn main() {
     // Create Matrix
     let m = rand(row, col);
     
-    // Copy Matrix
+    // Create another Matrix
     let n = rand(row, col);
     
     // Matmul
