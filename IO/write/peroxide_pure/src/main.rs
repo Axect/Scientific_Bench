@@ -8,5 +8,5 @@ fn main() {
     df.push("x", Series::new(x));
     df.push("y", Series::new(y));
 
-    df.write_parquet("data/data.parquet", CompressionOptions::Uncompressed).unwrap();
+    println!("Completed!");
 }
