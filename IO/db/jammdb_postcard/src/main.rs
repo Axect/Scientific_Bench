@@ -2,7 +2,6 @@ use peroxide::fuga::*;
 use jammdb::{DB, Data};
 use serde::{Serialize, Deserialize};
 use postcard::{from_bytes, to_allocvec};
-use bincode;
 
 const I: usize = 100;
 const J: usize = 500;
@@ -44,10 +43,8 @@ fn write() -> Result<(), Box<dyn std::error::Error>> {
             let matrix = rand(ROW, COL);
             let dbid = DBID::new((i, j), m);
 
-            //let dbid_ = to_allocvec(&dbid)?;
-            //let matrix_ = to_allocvec(&matrix)?;
-            let dbid_ = bincode::serialize(&dbid)?;
-            let matrix_ = bincode::serialize(&matrix)?;
+            let dbid_ = to_allocvec(&dbid)?;
+            let matrix_ = to_allocvec(&matrix)?;
 
             bucket.put(dbid_, matrix_)?;
         }
