@@ -1,0 +1,12 @@
+[package]
+name = "jammdb_postcard"
+version = "0.1.0"
+edition = "2021"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[dependencies]
+jammdb = "0.11.0"
+peroxide = { version = "0.34.4", features = ["serde"] }
+postcard = { version = "1.0.8", default-features = false, features = ["alloc"] }
+serde = { version = "1.0.196", features = ["derive"] }
