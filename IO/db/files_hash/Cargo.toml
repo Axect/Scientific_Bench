@@ -1,13 +1,11 @@
 [package]
-name = "kv_test"
+name = "files_hash"
 version = "0.1.0"
 edition = "2021"
 
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 
 [dependencies]
-bytemuck = "1.14.1"
-kv = "0.24.0"
-peroxide = { version = "0.34.4", features = ["serde"] }
-rmp-serde = "1.1.2"
+bincode = "1.3.3"
+peroxide = { version = "0.34.4", features = ["nc"] }
 serde = { version = "1.0.196", features = ["derive"] }

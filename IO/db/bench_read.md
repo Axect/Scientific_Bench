@@ -1,6 +1,6 @@
 | Command | Mean [ms] | Min [ms] | Max [ms] | Relative |
 |:---|---:|---:|---:|---:|
-| `./nativedb_test/target/release/nativedb_test read` | 9.4 ± 0.7 | 8.8 | 16.1 | 1.00 |
-| `./jammdb_test/target/release/jammdb_test read` | 35.6 ± 1.8 | 31.2 | 40.9 | 3.79 ± 0.34 |
-| `./files/target/release/files read` | 14033.4 ± 608.5 | 13191.4 | 14751.8 | 1492.71 ± 127.70 |
-| `python numpy_test/test.py read` | 3101.8 ± 159.0 | 2887.6 | 3276.5 | 329.93 ± 29.63 |
+| `./nativedb_test/target/release/nativedb_test read` | 10.3 ± 0.5 | 9.7 | 15.2 | 1.42 ± 0.09 |
+| `./jammdb_test/target/release/jammdb_test read` | 7.2 ± 0.3 | 6.7 | 8.8 | 1.00 |
+| `./files/target/release/files read` | 599.0 ± 23.2 | 574.9 | 627.0 | 82.75 ± 4.59 |
+| `python numpy_test/test.py read` | 86.5 ± 1.0 | 84.6 | 89.6 | 11.96 ± 0.49 |

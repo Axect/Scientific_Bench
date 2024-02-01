@@ -2,23 +2,18 @@ use peroxide::fuga::*;
 use serde::{Deserialize, Serialize};
 use jammdb::{DB, Data};
 
-const I: usize = 100;
-const J: usize = 500;
 const ROW: usize = 500;
 const COL: usize = 4;
 
 #[derive(Debug, Serialize, Deserialize, Copy, Clone)]
-struct DBID {
-    id: (usize, usize),
-    m: f64,
+struct DBParam {
+    m_pbh: f64,
+    m_a: f64,
 }
 
-impl DBID {
-    fn new(id: (usize, usize), m: f64) -> Self {
-        Self {
-            id,
-            m,
-        }
+impl DBParam {
+    fn new(m_pbh: f64, m_a: f64) -> Self {
+        Self { m_pbh, m_a }
     }
 }
 
@@ -33,19 +28,16 @@ fn write() -> Result<(), Box<dyn std::error::Error>> {
     let tx = db.tx(true)?;
     let bucket = tx.create_bucket("data")?;
 
-    let u = Uniform(0.0, 1.0);
-    let mut m_vec = u.sample(I*J);
-    m_vec[9301] = 0.1;
-    for i in 0 .. I {
-        for j in 0 .. J {
-            let m = m_vec[i * J + j];
+    let m_pbh_vec = (1 .. 100).map(|x| (x as f64) * 1e+15).collect::<Vec<_>>();
+    let m_a_vec = seq_with_precision(1e-3, 1e-1, 1e-3, 3);
+
+    for &m_pbh in &m_pbh_vec {
+        for &m_a in &m_a_vec {
             let matrix = rand(ROW, COL);
-            let dbid = DBID::new((i, j), m);
+            let db_param = rmp_serde::to_vec(&DBParam::new(m_pbh, m_a))?;
+            let db_matrix = rmp_serde::to_vec(&matrix)?;
 
-            let dbid_ = rmp_serde::to_vec(&dbid)?;
-            let matrix_ = rmp_serde::to_vec(&matrix)?;
-
-            bucket.put(dbid_, matrix_)?;
+            bucket.put(db_param, db_matrix)?;
         }
     }
     tx.commit()?;
@@ -62,8 +54,8 @@ fn update() -> Result<(), Box<dyn std::error::Error>> {
 
     let kv_candidates = bucket.cursor().filter_map(|data| {
         if let Data::KeyValue(kv) = data {
-            let dbid: DBID = rmp_serde::from_slice(kv.key()).unwrap();
-            if dbid.m == 0.1 {
+            let db_param: DBParam = rmp_serde::from_slice(kv.key()).unwrap();
+            if db_param.m_a == 9e-2 {
                 Some(kv)
             } else {
                 None
@@ -74,19 +66,16 @@ fn update() -> Result<(), Box<dyn std::error::Error>> {
     });
 
     for kv in kv_candidates {
-        let dbid: DBID = rmp_serde::from_slice(kv.key()).unwrap();
+        let db_param: DBParam = rmp_serde::from_slice(kv.key()).unwrap();
         let matrix: Matrix = rmp_serde::from_slice(kv.value()).unwrap();
-        println!("id: {:?}, m: {:.4}", dbid.id, dbid.m);
+        println!("m_pbh: {:.2e}, m_a: {:.2e}", db_param.m_pbh, db_param.m_a);
         matrix.row(0).print();
-        key_to_update.push(dbid);
+        key_to_update.push(db_param);
     }
 
     for key in key_to_update {
         let matrix = zeros(ROW, COL);
         let matrix_ = rmp_serde::to_vec(&matrix)?;
-
-        println!("id: {:?}, m: {:.4}", key.id, key.m);
-        matrix.row(0).print();
 
         bucket.put(rmp_serde::to_vec(&key)?, matrix_)?;
     }
@@ -103,8 +92,8 @@ fn read() -> Result<(), Box<dyn std::error::Error>> {
 
     let kv_candidates = bucket.cursor().filter_map(|data| {
         if let Data::KeyValue(kv) = data {
-            let dbid: DBID = rmp_serde::from_slice(kv.key()).unwrap();
-            if dbid.m == 0.1 {
+            let db_param: DBParam = rmp_serde::from_slice(kv.key()).unwrap();
+            if db_param.m_a == 9e-2 {
                 Some(kv)
             } else {
                 None
@@ -115,9 +104,9 @@ fn read() -> Result<(), Box<dyn std::error::Error>> {
     });
 
     for kv in kv_candidates {
-        let dbid: DBID = rmp_serde::from_slice(kv.key()).unwrap();
+        let db_param: DBParam = rmp_serde::from_slice(kv.key()).unwrap();
         let matrix: Matrix = rmp_serde::from_slice(kv.value()).unwrap();
-        println!("id: {:?}, m: {:.4}", dbid.id, dbid.m);
+        println!("m_pbh: {:.2e}, m_a: {:.2e}", db_param.m_pbh, db_param.m_a);
         matrix.row(0).print();
     }
 

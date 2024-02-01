@@ -3,8 +3,6 @@ use serde::{Deserialize, Serialize};
 use native_db::*;
 use native_model::{native_model, Model};
 
-const I: usize = 100;
-const J: usize = 500;
 const ROW: usize = 500;
 const COL: usize = 4;
 
@@ -13,17 +11,17 @@ const COL: usize = 4;
 #[native_db]
 struct DBMatrix {
     #[primary_key]
-    pub id: (u32, u32),
+    pub m_pbh: f64,
     #[secondary_key]
-    pub m: f64,
+    pub m_a: f64,
     pub matrix: Matrix,
 }
 
 impl DBMatrix {
-    pub fn from_param_and_matrix(id: (u32, u32), m: f64, matrix: Matrix) -> Self {
+    pub fn from_param_and_matrix(m_pbh: f64, m_a: f64, matrix: Matrix) -> Self {
         Self {
-            id,
-            m,
+            m_pbh,
+            m_a,
             matrix,
         }
     }
@@ -41,18 +39,17 @@ fn write() -> Result<(), Box<dyn std::error::Error>> {
 
     let db = builder.create("data/native.db")?;
     let rw = db.rw_transaction().unwrap();
-    let u = Uniform(0.0, 1.0);
-    let mut m_vec = u.sample(I*J);
-    m_vec[9301] = 0.1;
-    for i in 0 .. I {
-        for j in 0 .. J {
-            let m = m_vec[i * J + j];
+
+    let m_pbh_vec = (1 .. 100).map(|x| (x as f64) * 1e+15).collect::<Vec<_>>();
+    let m_a_vec = seq_with_precision(1e-3, 1e-1, 1e-3, 3);
+
+    for &m_pbh in m_pbh_vec.iter() {
+        for &m_a in m_a_vec.iter() {
             let matrix = rand(ROW, COL);
-            rw.insert(
-                DBMatrix::from_param_and_matrix((i as u32, j as u32), m, matrix)
-            )?;
+            rw.insert(DBMatrix::from_param_and_matrix(m_pbh, m_a, matrix))?;
         }
     }
+
     rw.commit()?;
 
     Ok(())
@@ -64,10 +61,11 @@ fn update() -> Result<(), Box<dyn std::error::Error>> {
 
     let db = builder.open("data/native.db")?;
     let r = db.r_transaction().unwrap();
-    let m = 0.1;
+    let target_m_a = 9e-2;
+
     let mut key_to_update = vec![];
-    for item in r.scan().secondary::<DBMatrix>(DBMatrixKey::m)?.start_with(m) {
-        println!("id: {:?}, m: {:.4}", item.id, item.m);
+    for item in r.scan().secondary::<DBMatrix>(DBMatrixKey::m_a)?.start_with(target_m_a) {
+        println!("m_pbh: {:.2e}, m: {:.2e}", item.m_pbh, item.m_a);
         item.matrix.row(0).print();
 
         key_to_update.push(item);
@@ -75,15 +73,12 @@ fn update() -> Result<(), Box<dyn std::error::Error>> {
 
     let rw = db.rw_transaction().unwrap();
     for item in key_to_update {
-        let id = item.id;
-        let m = item.m;
+        let m_pbh = item.m_pbh;
+        let m_a = item.m_a;
         let matrix = zeros(ROW, COL);
 
-        println!("id: {:?}, m: {:.4}", id, m);
-        matrix.row(0).print();
-
         rw.update(
-            item, DBMatrix::from_param_and_matrix(id, m, matrix)
+            item, DBMatrix::from_param_and_matrix(m_pbh, m_a, matrix)
         )?;
     }
     rw.commit()?;
@@ -97,8 +92,8 @@ fn read() -> Result<(), Box<dyn std::error::Error>> {
     let db = builder.open("data/native.db")?;
     let r = db.r_transaction()?;
 
-    for item in r.scan().secondary::<DBMatrix>(DBMatrixKey::m)?.start_with(0.1) {
-        println!("id: {:?}, m: {:.4}", item.id, item.m);
+    for item in r.scan().secondary::<DBMatrix>(DBMatrixKey::m_a)?.start_with(9e-2) {
+        println!("m_pbh: {:.2e}, m: {:.2e}", item.m_pbh, item.m_a);
         item.matrix.row(0).print();
     }
 

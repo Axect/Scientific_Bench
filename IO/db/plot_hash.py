@@ -5,12 +5,12 @@ import numpy as np
 import pandas as pd
 
 df_write = pd.read_csv('./bench_write.csv')['mean']
-df_read = pd.read_csv('./bench_read.csv')['mean']
-df_update = pd.read_csv('./bench_update.csv')['mean']
+df_read = pd.read_csv('./bench_hash_read.csv')['mean']
+df_update = pd.read_csv('./bench_hash_update.csv')['mean']
 
 # Prepare Data to Plot
 dummy = np.array([0, 1, 2, 3])
-dbs = ["NativeDB", "JammDB", "Files+netCDF", "Numpy"]
+dbs = ["NativeDB", "JammDB(Hash)", "Files(Hash)", "Numpy"]
 data = {
     'Read': np.array(df_read),
     'Update': np.array(df_update),
@@ -48,4 +48,4 @@ with plt.style.context(["science", "nature"]):
     # Disable minor ticks
     ax.get_xaxis().set_minor_locator(ticker.NullLocator())
     ax.get_yaxis().set_minor_locator(ticker.NullLocator())
-    fig.savefig('bench_plot.png', dpi=300, bbox_inches='tight')
+    fig.savefig('bench_hash_plot.png', dpi=300, bbox_inches='tight')

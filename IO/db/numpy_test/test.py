@@ -3,6 +3,21 @@ import numpy as np
 import sys
 import os
 import shutil
+import struct
+import re
+
+# Convert float to bits
+def float2bits(f):
+    packed = struct.pack('>d', f)  # '>d' means big-endian double precision float
+    bits = int.from_bytes(packed, byteorder='big')
+    return bits
+
+def bits2float(b):
+    packed = b.to_bytes(8, byteorder='big')  # 8 bytes for double precision
+    return struct.unpack('>d', packed)[0]
+
+ROW = 500
+COL = 4
 
 def write():
     data_dir = "data/numpy"
@@ -10,37 +25,64 @@ def write():
     if os.path.exists(data_dir):
         shutil.rmtree(data_dir)
     os.mkdir(data_dir)
-    m_vec = np.random.rand(100 * 500)
-    m_vec[9301] = 0.1
-    for i in range(100):
-        dir = f"{data_dir}/run_{i:03d}/"
+
+    m_pbh_vec = np.arange(1, 101) * 1e+15
+    m_a_vec = np.arange(0.001, 0.1, 0.001)
+
+    for m_pbh in m_pbh_vec:
+        m_pbh_bits = float2bits(m_pbh)
+        dir = f"{data_dir}/m_pbh_{m_pbh_bits}/"
         os.mkdir(dir)
-        for j in range(500):
-            trial_dir = f"{dir}/trial_{j:04d}/"
+        for m_a in m_a_vec:
+            m_a_bits = float2bits(m_a)
+            trial_dir = f"{dir}/m_a_{m_a_bits}/"
             os.mkdir(trial_dir)
-            m = m_vec[i * 500 + j]
-            matrix = np.random.rand(500, 4)
-            np.savez(f"{trial_dir}/data", m=m, matrix=matrix)
+            matrix = np.random.rand(ROW, COL)
+            np.savez(f"{trial_dir}/data", matrix = matrix)
 
 def update():
     data_dir = "data/numpy"
-    for i in range(100):
-        dir = f"{data_dir}/run_{i:03d}/"
-        for j in range(500):
-            data = np.load(f"{dir}/trial_{j:04d}/data.npz")
-            if data["m"] == 0.1:
-                matrix = np.zeros((500, 4))
-                np.savez(f"{dir}/trial_{j:04d}/data", m=0.1, matrix=matrix)
+    # list all directories in data_dir
+    for dir in os.listdir(data_dir):
+        # get m_pbh via regex
+        p = re.compile(r"m_pbh_(\d+)")
+        m_pbh_bits = p.match(dir)
+        m_pbh_bits = m_pbh_bits.group(1)
+        m_pbh = bits2float(int(m_pbh_bits))
+
+        run_dir = f"{data_dir}/{dir}"
+        for trial_dir in os.listdir(run_dir):
+            p = re.compile(r"m_a_(\d+)")
+            m_a_bits = p.match(trial_dir)
+            m_a_bits = m_a_bits.group(1)
+            m_a = bits2float(int(m_a_bits))
+
+            if m_a == 9e-2:
+                npz_dir = f"{run_dir}/{trial_dir}/data.npz"
+                data = np.load(npz_dir)
+                print(f"m_pbh: {m_pbh}, m_a: {m_a}\nmatrix: {data['matrix'][0,:]}")
+                new_matrix = np.zeros((ROW, COL))
+                np.savez(npz_dir, matrix = new_matrix)
 
 def read():
     dir = "data/numpy"
-    for i in range(100):
-        for j in range(500):
-            npz_dir = f"{dir}/run_{i:03d}/trial_{j:04d}/data.npz"
-            data = np.load(npz_dir)
-            if data["m"] == 0.1:
-                print(f"id: {i:03d}, j: {j:04d}, m: {data['m']}")
-                print(data["matrix"][0,:])
+    for file in os.listdir(dir):
+        p = re.compile(r"m_pbh_(\d+)")
+        m_pbh_bits = p.match(file)
+        m_pbh_bits = m_pbh_bits.group(1)
+        m_pbh = bits2float(int(m_pbh_bits))
+
+        run_dir = f"{dir}/{file}"
+        for trial_dir in os.listdir(run_dir):
+            p = re.compile(r"m_a_(\d+)")
+            m_a_bits = p.match(trial_dir)
+            m_a_bits = m_a_bits.group(1)
+            m_a = bits2float(int(m_a_bits))
+
+            if m_a == 9e-2:
+                npz_dir = f"{run_dir}/{trial_dir}/data.npz"
+                data = np.load(npz_dir)
+                print(f"m_pbh: {m_pbh}, m_a: {m_a}\nmatrix: {data['matrix'][0,:]}")
 
 if __name__ == "__main__":
     args = sys.argv

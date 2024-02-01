@@ -7,4 +7,5 @@ edition = "2021"
 
 [dependencies]
 peroxide = { version = "0.34.4", features = ["nc"] }
+regex = "1.10.3"
 serde = { version = "1.0.196", features = ["derive"] }
