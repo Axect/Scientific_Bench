@@ -1,0 +1,838 @@
+[
+    {
+        "BenchmarksResults": [
+            {
+                "mb_s": 0,
+                "name": "test_sum_loop",
+                "ns_iter_summ": {
+                    "iqr": 0.0,
+                    "max": 0.0,
+                    "mean": 0.0,
+                    "median": 0.0,
+                    "median_abs_dev": 0.0,
+                    "median_abs_dev_pct": "NaN",
+                    "min": 0.0,
+                    "quartiles": [
+                        0.0,
+                        0.0,
+                        0.0
+                    ],
+                    "std_dev": 0.0,
+                    "std_dev_pct": "NaN",
+                    "sum": 0.0,
+                    "var": 0.0
+                },
+                "total_iterations": 49104001,
+                "total_ns": 4033516998
+            },
+            {
+                "mb_s": 0,
+                "name": "test_sum_func",
+                "ns_iter_summ": {
+                    "iqr": 0.0,
+                    "max": 0.0,
+                    "mean": 0.0,
+                    "median": 0.0,
+                    "median_abs_dev": 0.0,
+                    "median_abs_dev_pct": "NaN",
+                    "min": 0.0,
+                    "quartiles": [
+                        0.0,
+                        0.0,
+                        0.0
+                    ],
+                    "std_dev": 0.0,
+                    "std_dev_pct": "NaN",
+                    "sum": 0.0,
+                    "var": 0.0
+                },
+                "total_iterations": 37316701,
+                "total_ns": 3058109457
+            },
+            {
+                "mb_s": 0,
+                "name": "test_sum_simd",
+                "ns_iter_summ": {
+                    "iqr": 0.0,
+                    "max": 0.0,
+                    "mean": 0.0,
+                    "median": 0.0,
+                    "median_abs_dev": 0.0,
+                    "median_abs_dev_pct": "NaN",
+                    "min": 0.0,
+                    "quartiles": [
+                        0.0,
+                        0.0,
+                        0.0
+                    ],
+                    "std_dev": 0.0,
+                    "std_dev_pct": "NaN",
+                    "sum": 0.0,
+                    "var": 0.0
+                },
+                "total_iterations": 37353241,
+                "total_ns": 4590909578
+            }
+        ]
+    },
+    {
+        "BenchmarksResults": [
+            {
+                "mb_s": 0,
+                "name": "test_sum_loop",
+                "ns_iter_summ": {
+                    "iqr": 42.0,
+                    "max": 12208.0,
+                    "mean": 12106.3400000000001,
+                    "median": 12083.0,
+                    "median_abs_dev": 0.0,
+                    "median_abs_dev_pct": 0.0,
+                    "min": 12083.0,
+                    "quartiles": [
+                        12083.0,
+                        12083.0,
+                        12125.0
+                    ],
+                    "std_dev": 42.2004981109977848,
+                    "std_dev_pct": 0.348581801857520801,
+                    "sum": 605317.0,
+                    "var": 1780.88204081632739
+                },
+                "total_iterations": 493,
+                "total_ns": 299343041
+            },
+            {
+                "mb_s": 0,
+                "name": "test_sum_func",
+                "ns_iter_summ": {
+                    "iqr": 0.0,
+                    "max": 2750.0,
+                    "mean": 2711.36000000000013,
+                    "median": 2708.0,
+                    "median_abs_dev": 0.0,
+                    "median_abs_dev_pct": 0.0,
+                    "min": 2708.0,
+                    "quartiles": [
+                        2708.0,
+                        2708.0,
+                        2708.0
+                    ],
+                    "std_dev": 11.5099956559505276,
+                    "std_dev_pct": 0.424510048682230523,
+                    "sum": 135568.0,
+                    "var": 132.480000000000018
+                },
+                "total_iterations": 1945,
+                "total_ns": 265289458
+            },
+            {
+                "mb_s": 0,
+                "name": "test_sum_simd",
+                "ns_iter_summ": {
+                    "iqr": 0.0,
+                    "max": 2125.0,
+                    "mean": 2125.0,
+                    "median": 2125.0,
+                    "median_abs_dev": 0.0,
+                    "median_abs_dev_pct": 0.0,
+                    "min": 2125.0,
+                    "quartiles": [
+                        2125.0,
+                        2125.0,
+                        2125.0
+                    ],
+                    "std_dev": 0.0,
+                    "std_dev_pct": 0.0,
+                    "sum": 106250.0,
+                    "var": 0.0
+                },
+                "total_iterations": 2569,
+                "total_ns": 275507375
+            }
+        ]
+    },
+    {
+        "BenchmarksResults": [
+            {
+                "mb_s": 0,
+                "name": "test_sum_loop",
+                "ns_iter_summ": {
+                    "iqr": 114.5,
+                    "max": 24541.0,
+                    "mean": 24403.0200000000004,
+                    "median": 24375.0,
+                    "median_abs_dev": 62.2691999999999979,
+                    "median_abs_dev_pct": 0.255463384615384592,
+                    "min": 24333.0,
+                    "quartiles": [
+                        24333.0,
+                        24375.0,
+                        24447.5
+                    ],
+                    "std_dev": 70.0828926110694539,
+                    "std_dev_pct": 0.287189424141231109,
+                    "sum": 1220151.0,
+                    "var": 4911.61183673469441
+                },
+                "total_iterations": 241,
+                "total_ns": 295080875
+            },
+            {
+                "mb_s": 0,
+                "name": "test_sum_func",
+                "ns_iter_summ": {
+                    "iqr": 0.0,
+                    "max": 5522.55000000000018,
+                    "mean": 5467.75300000000061,
+                    "median": 5458.0,
+                    "median_abs_dev": 0.0,
+                    "median_abs_dev_pct": 0.0,
+                    "min": 5458.0,
+                    "quartiles": [
+                        5458.0,
+                        5458.0,
+                        5458.0
+                    ],
+                    "std_dev": 20.2494933421121921,
+                    "std_dev_pct": 0.370343966563818627,
+                    "sum": 273387.650000000023,
+                    "var": 410.04198061224605
+                },
+                "total_iterations": 931,
+                "total_ns": 256022125
+            },
+            {
+                "mb_s": 0,
+                "name": "test_sum_simd",
+                "ns_iter_summ": {
+                    "iqr": 0.0,
+                    "max": 4291.0,
+                    "mean": 4258.19999999999982,
+                    "median": 4250.0,
+                    "median_abs_dev": 0.0,
+                    "median_abs_dev_pct": 0.0,
+                    "min": 4250.0,
+                    "quartiles": [
+                        4250.0,
+                        4250.0,
+                        4250.0
+                    ],
+                    "std_dev": 16.5665017306562561,
+                    "std_dev_pct": 0.389049404223762552,
+                    "sum": 212910.0,
+                    "var": 274.448979591836746
+                },
+                "total_iterations": 1231,
+                "total_ns": 264502125
+            }
+        ]
+    },
+    {
+        "BenchmarksResults": [
+            {
+                "mb_s": 0,
+                "name": "test_sum_loop",
+                "ns_iter_summ": {
+                    "iqr": 167.0,
+                    "max": 36897.5500000000029,
+                    "mean": 36680.252999999997,
+                    "median": 36645.5,
+                    "median_abs_dev": 92.6624999999999943,
+                    "median_abs_dev_pct": 0.25286187935762916,
+                    "min": 36583.0,
+                    "quartiles": [
+                        36583.0,
+                        36645.5,
+                        36750.0
+                    ],
+                    "std_dev": 108.97414101145165,
+                    "std_dev_pct": 0.297092119324944837,
+                    "sum": 1834012.64999999991,
+                    "var": 11875.3634091837484
+                },
+                "total_iterations": 163,
+                "total_ns": 298709791
+            },
+            {
+                "mb_s": 0,
+                "name": "test_sum_func",
+                "ns_iter_summ": {
+                    "iqr": 42.0,
+                    "max": 8291.0,
+                    "mean": 8219.63999999999942,
+                    "median": 8208.0,
+                    "median_abs_dev": 0.0,
+                    "median_abs_dev_pct": 0.0,
+                    "min": 8166.0,
+                    "quartiles": [
+                        8208.0,
+                        8208.0,
+                        8250.0
+                    ],
+                    "std_dev": 35.7951997693910329,
+                    "std_dev_pct": 0.435483789671944732,
+                    "sum": 410982.0,
+                    "var": 1281.29632653061208
+                },
+                "total_iterations": 667,
+                "total_ns": 275167375
+            },
+            {
+                "mb_s": 0,
+                "name": "test_sum_simd",
+                "ns_iter_summ": {
+                    "iqr": 31.5,
+                    "max": 6458.0,
+                    "mean": 6426.92000000000007,
+                    "median": 6416.0,
+                    "median_abs_dev": 0.0,
+                    "median_abs_dev_pct": 0.0,
+                    "min": 6416.0,
+                    "quartiles": [
+                        6416.0,
+                        6416.0,
+                        6447.5
+                    ],
+                    "std_dev": 18.60967490312499,
+                    "std_dev_pct": 0.289558216114795097,
+                    "sum": 321346.0,
+                    "var": 346.320000000000107
+                },
+                "total_iterations": 853,
+                "total_ns": 275242583
+            }
+        ]
+    },
+    {
+        "BenchmarksResults": [
+            {
+                "mb_s": 0,
+                "name": "test_sum_loop",
+                "ns_iter_summ": {
+                    "iqr": 155.75,
+                    "max": 49125.0,
+                    "mean": 48982.239999999998,
+                    "median": 48958.0,
+                    "median_abs_dev": 123.055799999999991,
+                    "median_abs_dev_pct": 0.251349728338575884,
+                    "min": 48875.0,
+                    "quartiles": [
+                        48885.25,
+                        48958.0,
+                        49041.0
+                    ],
+                    "std_dev": 81.9822180819270585,
+                    "std_dev_pct": 0.167371312708294001,
+                    "sum": 2449112.0,
+                    "var": 6721.08408163264812
+                },
+                "total_iterations": 361,
+                "total_ns": 884049125
+            },
+            {
+                "mb_s": 0,
+                "name": "test_sum_func",
+                "ns_iter_summ": {
+                    "iqr": 41.0,
+                    "max": 11083.0,
+                    "mean": 11015.5599999999995,
+                    "median": 11000.0,
+                    "median_abs_dev": 60.7866,
+                    "median_abs_dev_pct": 0.552605454545454511,
+                    "min": 10958.0,
+                    "quartiles": [
+                        11000.0,
+                        11000.0,
+                        11041.0
+                    ],
+                    "std_dev": 43.5651798797983005,
+                    "std_dev_pct": 0.395487654552272472,
+                    "sum": 550778.0,
+                    "var": 1897.92489795918254
+                },
+                "total_iterations": 523,
+                "total_ns": 288968583
+            },
+            {
+                "mb_s": 0,
+                "name": "test_sum_simd",
+                "ns_iter_summ": {
+                    "iqr": 42.0,
+                    "max": 8984.75,
+                    "mean": 8759.70499999999993,
+                    "median": 8750.0,
+                    "median_abs_dev": 61.5278999999999954,
+                    "median_abs_dev_pct": 0.703176000000000023,
+                    "min": 8708.0,
+                    "quartiles": [
+                        8708.0,
+                        8750.0,
+                        8750.0
+                    ],
+                    "std_dev": 73.241888350749619,
+                    "std_dev_pct": 0.836122772978651785,
+                    "sum": 437985.25,
+                    "var": 5364.37420918367297
+                },
+                "total_iterations": 679,
+                "total_ns": 298933000
+            }
+        ]
+    },
+    {
+        "BenchmarksResults": [
+            {
+                "mb_s": 0,
+                "name": "test_sum_loop",
+                "ns_iter_summ": {
+                    "iqr": 208.0,
+                    "max": 61772.5500000000029,
+                    "mean": 61266.1330000000016,
+                    "median": 61208.0,
+                    "median_abs_dev": 123.055799999999991,
+                    "median_abs_dev_pct": 0.201045288197621186,
+                    "min": 61083.0,
+                    "quartiles": [
+                        61125.0,
+                        61208.0,
+                        61333.0
+                    ],
+                    "std_dev": 199.587166934906463,
+                    "std_dev_pct": 0.325770792380362051,
+                    "sum": 3063306.64999999991,
+                    "var": 39835.0372051022205
+                },
+                "total_iterations": 97,
+                "total_ns": 295323791
+            },
+            {
+                "mb_s": 0,
+                "name": "test_sum_func",
+                "ns_iter_summ": {
+                    "iqr": 41.0,
+                    "max": 13875.0,
+                    "mean": 13774.7800000000007,
+                    "median": 13750.0,
+                    "median_abs_dev": 60.7866,
+                    "median_abs_dev_pct": 0.442084363636363609,
+                    "min": 13708.0,
+                    "quartiles": [
+                        13750.0,
+                        13750.0,
+                        13791.0
+                    ],
+                    "std_dev": 52.5641648708645164,
+                    "std_dev_pct": 0.381597128018483889,
+                    "sum": 688739.0,
+                    "var": 2762.99142857142715
+                },
+                "total_iterations": 415,
+                "total_ns": 286729750
+            },
+            {
+                "mb_s": 0,
+                "name": "test_sum_simd",
+                "ns_iter_summ": {
+                    "iqr": 42.0,
+                    "max": 11216.2999999999993,
+                    "mean": 10948.4580000000005,
+                    "median": 10916.0,
+                    "median_abs_dev": 60.7866,
+                    "median_abs_dev_pct": 0.556857823378526962,
+                    "min": 10875.0,
+                    "quartiles": [
+                        10916.0,
+                        10916.0,
+                        10958.0
+                    ],
+                    "std_dev": 87.6433149132298013,
+                    "std_dev_pct": 0.800508299097734022,
+                    "sum": 547422.900000000023,
+                    "var": 7681.35064897956818
+                },
+                "total_iterations": 541,
+                "total_ns": 297630083
+            }
+        ]
+    },
+    {
+        "BenchmarksResults": [
+            {
+                "mb_s": 0,
+                "name": "test_sum_loop",
+                "ns_iter_summ": {
+                    "iqr": 281.5,
+                    "max": 73958.0,
+                    "mean": 73565.5399999999936,
+                    "median": 73500.0,
+                    "median_abs_dev": 185.324999999999989,
+                    "median_abs_dev_pct": 0.252142857142857113,
+                    "min": 73375.0,
+                    "quartiles": [
+                        73416.0,
+                        73500.0,
+                        73697.5
+                    ],
+                    "std_dev": 190.093232764496747,
+                    "std_dev_pct": 0.258399833351997066,
+                    "sum": 3678277.0,
+                    "var": 36135.4371428571394
+                },
+                "total_iterations": 79,
+                "total_ns": 288545291
+            },
+            {
+                "mb_s": 0,
+                "name": "test_sum_func",
+                "ns_iter_summ": {
+                    "iqr": 42.0,
+                    "max": 16583.0,
+                    "mean": 16493.119999999999,
+                    "median": 16500.0,
+                    "median_abs_dev": 60.7866,
+                    "median_abs_dev_pct": 0.368403636363636378,
+                    "min": 16458.0,
+                    "quartiles": [
+                        16458.0,
+                        16500.0,
+                        16500.0
+                    ],
+                    "std_dev": 37.0309523044091904,
+                    "std_dev_pct": 0.224523633517546672,
+                    "sum": 824656.0,
+                    "var": 1371.29142857142847
+                },
+                "total_iterations": 349,
+                "total_ns": 288886750
+            },
+            {
+                "mb_s": 0,
+                "name": "test_sum_simd",
+                "ns_iter_summ": {
+                    "iqr": 42.0,
+                    "max": 13276.75,
+                    "mean": 13114.625,
+                    "median": 13083.0,
+                    "median_abs_dev": 31.1345999999999989,
+                    "median_abs_dev_pct": 0.237977528089887647,
+                    "min": 13041.0,
+                    "quartiles": [
+                        13083.0,
+                        13083.0,
+                        13125.0
+                    ],
+                    "std_dev": 60.1634094931191115,
+                    "std_dev_pct": 0.45875051321039767,
+                    "sum": 655731.25,
+                    "var": 3619.63584183673447
+                },
+                "total_iterations": 457,
+                "total_ns": 300919791
+            }
+        ]
+    },
+    {
+        "BenchmarksResults": [
+            {
+                "mb_s": 0,
+                "name": "test_sum_loop",
+                "ns_iter_summ": {
+                    "iqr": 364.75,
+                    "max": 86458.0,
+                    "mean": 85908.7200000000012,
+                    "median": 85812.0,
+                    "median_abs_dev": 216.459599999999995,
+                    "median_abs_dev_pct": 0.252248636554328054,
+                    "min": 85666.0,
+                    "quartiles": [
+                        85666.0,
+                        85812.0,
+                        86030.75
+                    ],
+                    "std_dev": 260.880380751839027,
+                    "std_dev_pct": 0.303671595563103525,
+                    "sum": 4295436.0,
+                    "var": 68058.5730612244952
+                },
+                "total_iterations": 67,
+                "total_ns": 285822916
+            },
+            {
+                "mb_s": 0,
+                "name": "test_sum_func",
+                "ns_iter_summ": {
+                    "iqr": 125.0,
+                    "max": 19458.0,
+                    "mean": 19314.7400000000016,
+                    "median": 19291.0,
+                    "median_abs_dev": 60.7866,
+                    "median_abs_dev_pct": 0.31510341610077236,
+                    "min": 19250.0,
+                    "quartiles": [
+                        19250.0,
+                        19291.0,
+                        19375.0
+                    ],
+                    "std_dev": 67.3476542324396235,
+                    "std_dev_pct": 0.348685274730281713,
+                    "sum": 965737.0,
+                    "var": 4535.7065306122422
+                },
+                "total_iterations": 301,
+                "total_ns": 291403791
+            },
+            {
+                "mb_s": 0,
+                "name": "test_sum_simd",
+                "ns_iter_summ": {
+                    "iqr": 83.0,
+                    "max": 15416.0,
+                    "mean": 15304.6599999999999,
+                    "median": 15291.0,
+                    "median_abs_dev": 60.7866,
+                    "median_abs_dev_pct": 0.397531881498920936,
+                    "min": 15250.0,
+                    "quartiles": [
+                        15250.0,
+                        15291.0,
+                        15333.0
+                    ],
+                    "std_dev": 54.743785408175107,
+                    "std_dev_pct": 0.357693574428802119,
+                    "sum": 765233.0,
+                    "var": 2996.88204081632557
+                },
+                "total_iterations": 391,
+                "total_ns": 300233958
+            }
+        ]
+    },
+    {
+        "BenchmarksResults": [
+            {
+                "mb_s": 0,
+                "name": "test_sum_loop",
+                "ns_iter_summ": {
+                    "iqr": 406.5,
+                    "max": 98897.5500000000029,
+                    "mean": 98181.2599999999948,
+                    "median": 98062.0,
+                    "median_abs_dev": 216.459599999999995,
+                    "median_abs_dev_pct": 0.220737492606718183,
+                    "min": 97893.4499999999971,
+                    "quartiles": [
+                        97916.0,
+                        98062.0,
+                        98322.5
+                    ],
+                    "std_dev": 310.883511716435692,
+                    "std_dev_pct": 0.316642413956019442,
+                    "sum": 4909063.0,
+                    "var": 96648.5578571432125
+                },
+                "total_iterations": 61,
+                "total_ns": 296328125
+            },
+            {
+                "mb_s": 0,
+                "name": "test_sum_func",
+                "ns_iter_summ": {
+                    "iqr": 84.0,
+                    "max": 22250.0,
+                    "mean": 22091.6739999999991,
+                    "median": 22083.0,
+                    "median_abs_dev": 62.2691999999999979,
+                    "median_abs_dev_pct": 0.28197799212063579,
+                    "min": 21976.9000000000015,
+                    "quartiles": [
+                        22041.0,
+                        22083.0,
+                        22125.0
+                    ],
+                    "std_dev": 81.086967195595463,
+                    "std_dev_pct": 0.367047636116644982,
+                    "sum": 1104583.69999999995,
+                    "var": 6575.09624897957474
+                },
+                "total_iterations": 271,
+                "total_ns": 300166958
+            },
+            {
+                "mb_s": 0,
+                "name": "test_sum_simd",
+                "ns_iter_summ": {
+                    "iqr": 42.0,
+                    "max": 17564.0999999999985,
+                    "mean": 17471.8060000000005,
+                    "median": 17458.0,
+                    "median_abs_dev": 62.2691999999999979,
+                    "median_abs_dev_pct": 0.356680032076984732,
+                    "min": 17416.0,
+                    "quartiles": [
+                        17458.0,
+                        17458.0,
+                        17500.0
+                    ],
+                    "std_dev": 45.7632211742670307,
+                    "std_dev_pct": 0.261926106404037629,
+                    "sum": 873590.300000000047,
+                    "var": 2094.27241224488216
+                },
+                "total_iterations": 343,
+                "total_ns": 300837250
+            }
+        ]
+    },
+    {
+        "BenchmarksResults": [
+            {
+                "mb_s": 0,
+                "name": "test_sum_loop",
+                "ns_iter_summ": {
+                    "iqr": 447.75,
+                    "max": 111170.649999999994,
+                    "mean": 110449.919000000009,
+                    "median": 110333.0,
+                    "median_abs_dev": 247.594199999999972,
+                    "median_abs_dev_pct": 0.224406297299991841,
+                    "min": 110125.0,
+                    "quartiles": [
+                        110208.0,
+                        110333.0,
+                        110655.75
+                    ],
+                    "std_dev": 321.935249525015763,
+                    "std_dev_pct": 0.291476220571076861,
+                    "sum": 5522495.95000000019,
+                    "var": 103642.304886734171
+                },
+                "total_iterations": 55,
+                "total_ns": 300176916
+            },
+            {
+                "mb_s": 0,
+                "name": "test_sum_func",
+                "ns_iter_summ": {
+                    "iqr": 114.5,
+                    "max": 25000.0,
+                    "mean": 24810.5600000000013,
+                    "median": 24791.0,
+                    "median_abs_dev": 62.2691999999999979,
+                    "median_abs_dev_pct": 0.251176636682667098,
+                    "min": 24708.0,
+                    "quartiles": [
+                        24750.0,
+                        24791.0,
+                        24864.5
+                    ],
+                    "std_dev": 84.3315033008400405,
+                    "std_dev_pct": 0.339901651961261819,
+                    "sum": 1240528.0,
+                    "var": 7111.80244897959346
+                },
+                "total_iterations": 241,
+                "total_ns": 299844125
+            },
+            {
+                "mb_s": 0,
+                "name": "test_sum_simd",
+                "ns_iter_summ": {
+                    "iqr": 72.5,
+                    "max": 19814.0999999999985,
+                    "mean": 19651.1059999999998,
+                    "median": 19625.0,
+                    "median_abs_dev": 60.7866,
+                    "median_abs_dev_pct": 0.309740636942675174,
+                    "min": 19583.0,
+                    "quartiles": [
+                        19593.5,
+                        19625.0,
+                        19666.0
+                    ],
+                    "std_dev": 73.749751739464358,
+                    "std_dev_pct": 0.375295679232834856,
+                    "sum": 982555.300000000047,
+                    "var": 5439.0258816326259
+                },
+                "total_iterations": 301,
+                "total_ns": 297039625
+            }
+        ]
+    },
+    {
+        "BenchmarksResults": [
+            {
+                "mb_s": 0,
+                "name": "test_sum_loop",
+                "ns_iter_summ": {
+                    "iqr": 447.75,
+                    "max": 123587.199999999997,
+                    "mean": 122729.653000000006,
+                    "median": 122604.0,
+                    "median_abs_dev": 216.459599999999995,
+                    "median_abs_dev_pct": 0.176551825389057448,
+                    "min": 122412.350000000006,
+                    "quartiles": [
+                        122458.0,
+                        122604.0,
+                        122905.75
+                    ],
+                    "std_dev": 340.515757286213613,
+                    "std_dev_pct": 0.277451902586421884,
+                    "sum": 6136482.65000000037,
+                    "var": 115950.980960203524
+                },
+                "total_iterations": 49,
+                "total_ns": 296697458
+            },
+            {
+                "mb_s": 0,
+                "name": "test_sum_func",
+                "ns_iter_summ": {
+                    "iqr": 125.0,
+                    "max": 27856.0999999999985,
+                    "mean": 27657.7060000000019,
+                    "median": 27625.0,
+                    "median_abs_dev": 92.6624999999999943,
+                    "median_abs_dev_pct": 0.335429864253393661,
+                    "min": 27541.0,
+                    "quartiles": [
+                        27583.0,
+                        27625.0,
+                        27708.0
+                    ],
+                    "std_dev": 94.5612325319374776,
+                    "std_dev_pct": 0.341898321328375776,
+                    "sum": 1382885.30000000005,
+                    "var": 8941.82669795915172
+                },
+                "total_iterations": 217,
+                "total_ns": 301046958
+            },
+            {
+                "mb_s": 0,
+                "name": "test_sum_simd",
+                "ns_iter_summ": {
+                    "iqr": 84.0,
+                    "max": 22000.0,
+                    "mean": 21838.0,
+                    "median": 21791.0,
+                    "median_abs_dev": 60.7866,
+                    "median_abs_dev_pct": 0.27895277867009316,
+                    "min": 21750.0,
+                    "quartiles": [
+                        21791.0,
+                        21791.0,
+                        21875.0
+                    ],
+                    "std_dev": 84.5226693417396859,
+                    "std_dev_pct": 0.387044002847054147,
+                    "sum": 1091900.0,
+                    "var": 7144.08163265306121
+                },
+                "total_iterations": 253,
+                "total_ns": 278326416
+            }
+        ]
+    }
+]

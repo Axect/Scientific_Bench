@@ -10,5 +10,5 @@ hyperfine -w 3 \
     #"./cpp_eigen3_blas/bin/matmul {size} {size}" \
     #"python python_numpy/matmul.py {size} {size}" \
     #"./nim_arraymancer/nim_arraymancer {size} {size}"
-#    "./chapel/bin/matmul --r={size} --c={size}" \
+    #"./chapel/bin/matmul --r={size} --c={size}" \
 

@@ -1,0 +1,16 @@
+.dub
+docs.json
+__dummy.html
+docs/
+/d_sum
+d_sum.so
+d_sum.dylib
+d_sum.dll
+d_sum.a
+d_sum.lib
+d_sum-test-*
+*.exe
+*.pdb
+*.o
+*.obj
+*.lst
