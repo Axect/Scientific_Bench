@@ -4,64 +4,92 @@ import std.json;
 import std.algorithm : sum, map;
 import std.array : array;
 import std.file : write;
-import core.simd;
+import ldc.simd;
+version(LDC) {
+    pragma(LDC_no_moduleinfo);
+    import ldc.attributes;
+} else {
+    import core.attribute;
+}
 
 import simplebench;
 
-float sum_loop(immutable float[] arr) {
-    float res = 0;
-    foreach(el; arr)
+enum win_size = 32;
+
+T sum_autov(T)(T[] a) {
+    T[64/T.sizeof] sa = 0;
+    const partial = a.length % sa.length;
+    sa[0 .. partial] = a[0 .. partial];
+    for (a = a[partial .. $] ; a.length >= sa.length; a = a[sa.length .. $])
+        sa[] += a[0 .. sa.length];
+    T result = 0;
+    foreach(x; sa[])
+        result += x;
+    return result;
+}
+
+T sum_loop(T)(T[] arr) {
+    T res = 0;
+    foreach(ref el; arr)
         res += el;
     return res;
 }
 
-float sum_func(immutable float[] arr) {
+T sum_func(T)(T[] arr) {
     return sum(arr);
 }
 
-float sum_simd(immutable float[] arr) {
+T sum_simd(T)(T[] arr) {
     size_t n = arr.length;
-    float result = 0.0;
+    T result = 0;
 
-    float8 vec;
-    // Process the array in simds of 8 elements using SIMD
-    for (size_t i = 0; i + 8 <= n; i += 8) {
-        // Load 8 floats into a SIMD register
-        auto tmp = ([arr[i], arr[i + 1], arr[i + 2], arr[i + 3],
-                            arr[i + 4], arr[i + 5], arr[i + 6], arr[i + 7]]);
+    __vector(T[win_size]) vec = 0;
+    // Process the array in simds of 32 elements using SIMD
+    for (size_t i = 0; i + win_size <= n; i += win_size) {
+        // Load 8 doubles into a SIMD register
+        __vector(T[win_size]) tmp = 0;
+        static foreach(k; 0..win_size)
+            tmp[k] = arr[i + k];
         vec[] += tmp[];
     }
 
     // Sum the elements of the SIMD register (horizontal sum)
-    result += vec[0] + vec[1] + vec[2] + vec[3] +
-              vec[4] + vec[5] + vec[6] + vec[7];
+    static foreach(l; 0..win_size)
+        result += vec[l];
 
     // Handle any remaining elements that don't fit into a full SIMD vector
-    for (size_t i = n - (n % 8); i < n; i++) {
+    for (size_t i = n - (n % win_size); i < n; i++) {
         result += arr[i];
     }
 
     return result;
 }
 
-void test_sum_loop(float N)(ref Bencher bencher){
-  immutable float[] arr = N.iota.array;
+void test_sum__loop(double N)(ref Bencher bencher){
+  double[] arr = N.iota.array;
   bencher.iter((){
       return sum_loop(arr);
   });
 }
 
-void test_sum_func(float N)(ref Bencher bencher){
-  immutable float[] arr = N.iota.array;
+void test_sum__func(double N)(ref Bencher bencher){
+  double[] arr = N.iota.array;
   bencher.iter((){
       return sum_func(arr);
   });
 }
 
-void test_sum_simd(float N)(ref Bencher bencher){
-  immutable float[] arr = N.iota.array;
+void test_sum__simd(double N)(ref Bencher bencher){
+  double[] arr = N.iota.array;
   bencher.iter((){
       return sum_simd(arr);
+  });
+}
+
+void test_sum_autov(double N)(ref Bencher bencher){
+  double[] arr = N.iota.array;
+  bencher.iter((){
+      return sum_autov(arr);
   });
 }
 
@@ -69,15 +97,15 @@ void main()
 {
   JSONValue js_s;
   js_s.array = [];
-  static foreach(float N; iota(0,100_001,10_000)) {
-    js_s.array ~= BenchMain!(test_sum_loop!N, test_sum_func!N, test_sum_simd!N).toJSON;
+  static foreach(double N; iota(10_000,100_001,10_000)) {
+    js_s.array ~= BenchMain!(test_sum__loop!N, test_sum__func!N, test_sum_autov!N, test_sum__simd!N).toJSON;
   }
   write("data_small.json", js_s.toPrettyString(JSONOptions.specialFloatLiterals));
 
   JSONValue js_l;
   js_l.array = [];
-  static foreach(float N; iota(0,100_000_001,10_000_000)) {
-    js_l.array ~= BenchMain!(test_sum_loop!N, test_sum_func!N, test_sum_simd!N).toJSON;
+  static foreach(double N; iota(10_000_000,100_000_001,10_000_000)) {
+    js_l.array ~= BenchMain!(test_sum__loop!N, test_sum__func!N, test_sum_autov!N, test_sum__simd!N).toJSON;
   }
-  write("data_large.json", js_s.toPrettyString(JSONOptions.specialFloatLiterals));
+  write("data_large.json", js_l.toPrettyString(JSONOptions.specialFloatLiterals));
 }

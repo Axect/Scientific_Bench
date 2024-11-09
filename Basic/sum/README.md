@@ -20,6 +20,7 @@ def for_sum(x):
 
 * Rust : `cargo bench`
 * Julia : `julia -O3`
+* D : `dub run -b=release-nobounds`
 
 ## Specific version
 
@@ -28,6 +29,7 @@ def for_sum(x):
 * Julia : `julia version 1.5.3`
 * Python : `Python 3.9.1`
     * numpy : `1.20.0`
+* D : `LDC 1.39`
 
 ## Result
 
