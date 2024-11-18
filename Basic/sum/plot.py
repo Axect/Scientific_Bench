@@ -31,6 +31,30 @@ c3_min = []
 c3_mean = []
 c3_max = []
 
+# Load D data
+def read_d(path, name, min_vec, mean_vec, max_vec):
+    with open(path, "r") as d_json:
+        d_dict = json.load(d_json)
+        for calculation in d_dict:
+            for func_type in calculation["BenchmarksResults"]:
+                if func_type["name"] == name:
+                    min_vec.append(func_type["ns_iter_summ"]["min"] / 1E+9)
+                    mean_vec.append(func_type["ns_iter_summ"]["mean"] / 1E+9)
+                    max_vec.append(func_type["ns_iter_summ"]["max"] / 1E+9)
+
+d1_min = []
+d1_mean = []
+d1_max = []
+d2_min = []
+d2_mean = []
+d2_max = []
+d3_min = []
+d3_mean = []
+d3_max = []
+d4_min = []
+d4_mean = []
+d4_max = []
+
 small_range = [p*10000 for p in range(1, 11)]
 large_range = [p*10000000 for p in range(1, 11)]
 
@@ -44,13 +68,21 @@ for param in large_range:
     cum_criterion(f"rust_sum/target/criterion/sum/simd_sum/{param}/new/estimates.json", c2_min, c2_mean, c2_max)
     cum_criterion(f"rust_sum/target/criterion/sum/chunk_sum/{param}/new/estimates.json", c3_min, c3_mean, c3_max)
 
+read_d("d_sum/data_small.json", "test_sum__loop", d1_min, d1_mean, d1_max)
+read_d("d_sum/data_small.json", "test_sum__func", d2_min, d2_mean, d2_max)
+read_d("d_sum/data_small.json", "test_sum_autov", d3_min, d3_mean, d3_max)
+read_d("d_sum/data_small.json", "test_sum__simd", d4_min, d4_mean, d4_max)
+
+read_d("d_sum/data_large.json", "test_sum__loop", d1_min, d1_mean, d1_max)
+read_d("d_sum/data_large.json", "test_sum__func", d2_min, d2_mean, d2_max)
+read_d("d_sum/data_large.json", "test_sum_autov", d3_min, d3_mean, d3_max)
+read_d("d_sum/data_large.json", "test_sum__simd", d4_min, d4_mean, d4_max)
+
 dc1 = pd.DataFrame({
         "min" : c1_min,
         "mean": c1_mean,
         "max" : c1_max,
     })
-
-print(dc1)
 
 dc2 = pd.DataFrame({
         "min" : c2_min,
@@ -64,10 +96,38 @@ dc3 = pd.DataFrame({
         "max" : c3_max,
     })
 
+d1 = pd.DataFrame({
+        "min" : d1_min,
+        "mean": d1_mean,
+        "max" : d1_max,
+    })
+
+d2 = pd.DataFrame({
+        "min" : d2_min,
+        "mean": d2_mean,
+        "max" : d2_max,
+    })
+
+d3 = pd.DataFrame({
+        "min" : d3_min,
+        "mean": d3_mean,
+        "max" : d3_max,
+    })
+
+d4 = pd.DataFrame({
+        "min" : d4_min,
+        "mean": d4_mean,
+        "max" : d4_max,
+    })
+
 # Filtering
 rust_for = dc1
 rust_simd = dc2
 rust_chunk = dc3
+d_loop = d1
+d_func = d2
+d_autovec = d3
+d_simd = d4
 #rust_for = df[df["command"].str.contains("rust_for")]
 #rust_simd = df[df["command"].str.contains("rust_simd")]
 #rust_chunk = df[df["command"].str.contains("rust_chunk")]
@@ -121,6 +181,17 @@ plt.fill_between(domain, julia_simd["min"][0:10], julia_simd["max"][0:10], alpha
 plt.plot(domain, julia_avx["mean"][0:10], marker='o', label=r'julia(avx)')
 plt.fill_between(domain, julia_avx["min"][0:10], julia_avx["max"][0:10], alpha=0.2)
 
+plt.plot(domain, d_loop["mean"][0:10], marker='o', label=r'd(for loop)')
+plt.fill_between(domain, d_loop["min"][0:10], d_loop["max"][0:10], alpha=0.2)
+
+plt.plot(domain, d_func["mean"][0:10], marker='o', label=r'd(function)')
+plt.fill_between(domain, d_func["min"][0:10], d_func["max"][0:10], alpha=0.2)
+
+plt.plot(domain, d_autovec["mean"][0:10], marker='o', label=r'd(auto-vec)')
+plt.fill_between(domain, d_autovec["min"][0:10], d_autovec["max"][0:10], alpha=0.2)
+
+plt.plot(domain, d_simd["mean"][0:10], marker='o', label=r'd(simd)')
+plt.fill_between(domain, d_simd["min"][0:10], d_simd["max"][0:10], alpha=0.2)
 
 # Other options
 plt.legend(fontsize=12)
@@ -163,6 +234,18 @@ plt.fill_between(domain, julia_avx["min"][10:], julia_avx["max"][10:], alpha=0.2
 
 #plt.plot(domain, py_sum["mean"], marker='o', label=r'python(sum)')
 #plt.fill_between(domain, py_sum["min"], py_sum["max"], alpha=0.2)
+
+plt.plot(domain, d_loop["mean"][10:20], marker='o', label=r'd(for loop)')
+plt.fill_between(domain, d_loop["min"][10:20], d_loop["max"][10:20], alpha=0.2)
+
+plt.plot(domain, d_func["mean"][10:20], marker='o', label=r'd(function)')
+plt.fill_between(domain, d_func["min"][10:20], d_func["max"][10:20], alpha=0.2)
+
+plt.plot(domain, d_autovec["mean"][10:20], marker='o', label=r'd(auto-vec)')
+plt.fill_between(domain, d_autovec["min"][10:20], d_autovec["max"][10:20], alpha=0.2)
+
+plt.plot(domain, d_simd["mean"][10:20], marker='o', label=r'd(simd)')
+plt.fill_between(domain, d_simd["min"][10:20], d_simd["max"][10:20], alpha=0.2)
 
 # Other options
 plt.legend(fontsize=12)

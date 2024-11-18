@@ -1,0 +1,12 @@
+{
+	"authors": [
+		"Sergei Giniatulin"
+	],
+	"copyright": "Copyright © 2024, Sergei Giniatulin",
+	"dependencies": {
+		"simplebench": "~>0.1.2"
+	},
+	"description": "Simple array sum benchmark",
+	"license": "MIT",
+	"name": "d_sum"
+}
