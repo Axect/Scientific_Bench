@@ -1,0 +1,16 @@
+.dub
+docs.json
+__dummy.html
+docs/
+/d_lubeck
+d_lubeck.so
+d_lubeck.dylib
+d_lubeck.dll
+d_lubeck.a
+d_lubeck.lib
+d_lubeck-test-*
+*.exe
+*.pdb
+*.o
+*.obj
+*.lst

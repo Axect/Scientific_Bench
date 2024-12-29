@@ -13,6 +13,7 @@
 * C++(BLAS) : `g++ -I$EIGEN -I$OPENBLAS -lopenblas -O2`
 * Julia : `@benchmark`
 * Nim : `nimble build -d:release -d:danger -d:openblas -d:blas=cblas`
+* D: `dub build -b=release-nobounds`
 
 ## Specific version
 
@@ -21,6 +22,7 @@
 * C++ : `gcc version 10.2.0`
     * Eigen : `3.3.7`
 * Julia : `julia version 1.5.3`
+* D: `ldc version 1.40.0`
 * Python : `Python 3.9.1`
     * numpy : `1.20.0`
 * Nim : `Nim Compiler Version 1.5.1 [Linux: amd64]`

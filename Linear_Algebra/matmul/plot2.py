@@ -11,6 +11,7 @@ numpy = pd.read_csv("csv/bench_numpy.csv")
 eigen3 = pd.read_csv("csv/bench_eigen.csv")
 eigen3_blas = pd.read_csv("csv/bench_blas.csv")
 nim = pd.read_csv("csv/bench_nim.csv")
+d = pd.read_csv("csv/bench_d.csv")
 
 # Use latex
 plt.rc('text', usetex=True)
@@ -40,6 +41,9 @@ plt.fill_between(five["parameter_size"], five["min"], five["max"], alpha=0.2)
 
 plt.plot(nim["parameter_size"], nim["mean"], marker='o', label=r'arraymancer')
 plt.fill_between(nim["parameter_size"], nim["min"], nim["max"], alpha=0.2)
+
+plt.plot(d["parameter_size"], d["mean"], marker='o', label=r'lubeck')
+plt.fill_between(d["parameter_size"], d["min"], d["max"], alpha=0.2)
 
 plt.plot(julia["param"], julia["mean"], marker='o', label=r'julia')
 plt.fill_between(julia["param"], julia["min"], julia["max"], alpha=0.2)
