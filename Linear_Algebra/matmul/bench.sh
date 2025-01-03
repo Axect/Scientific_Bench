@@ -5,6 +5,7 @@ hyperfine -w 3 \
     "./rust_peroxide/target/release/rust_peroxide {size} {size}" \
     "./rust_five/target/release/rust_five {size} {size}" \
     "./rust_o3/target/release/rust_o3 {size} {size}" \
+    "./d_lubeck/matmul {size} {size}" \
     "./cpp_eigen3_default/bin/matmul {size} {size}" \
     "./cpp_eigen3_blas/bin/matmul {size} {size}" \
     "./nim_arraymancer/nim_arraymancer {size} {size}"

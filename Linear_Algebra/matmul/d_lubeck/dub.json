@@ -4,10 +4,11 @@
 	],
 	"copyright": "Copyright © 2024, Sergei Giniatulin",
 	"dependencies": {
-		"simplebench": "~>0.1.2"
+		"lubeck": "~>1.5.4",
+		"mir-random": "~>2.2.19"
 	},
 	"dflags-ldc": ["-mcpu=native"],
-	"description": "Simple array sum benchmark",
+	"description": "Matmul in D",
 	"license": "MIT",
-	"name": "d_sum"
+	"name": "matmul"
 }

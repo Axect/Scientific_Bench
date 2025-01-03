@@ -1,0 +1,16 @@
+.dub
+docs.json
+__dummy.html
+docs/
+/matmul
+matmul.so
+matmul.dylib
+matmul.dll
+matmul.a
+matmul.lib
+matmul-test-*
+*.exe
+*.pdb
+*.o
+*.obj
+*.lst
