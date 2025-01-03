@@ -1,4 +1,3 @@
-extern crate peroxide;
 use peroxide::fuga::*;
 use std::env;
 

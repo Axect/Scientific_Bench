@@ -1,4 +1,5 @@
 extern crate peroxide;
+extern crate openblas_src;
 use peroxide::fuga::*;
 use std::env;
 
